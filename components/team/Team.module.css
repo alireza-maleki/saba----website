@@ -1,0 +1,19 @@
+.user-img {
+    transition: all 0.3s;
+}
+
+.media {
+    transition: all 0.3s;
+}
+
+
+/* .user-img:hover .media {
+    bottom: 10%;
+} */
+
+
+@media (min-width: 768px) {
+    .user-img:hover .media {
+        bottom: 10%;
+    }
+}

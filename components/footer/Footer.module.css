@@ -1,0 +1,20 @@
+.list-item li {
+    cursor: pointer;
+    width: 80%;
+    transition: all 0.3s;
+}
+
+.list-item li::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    display: none;
+    background-color: gray
+}
+
+.list-item li:hover::after {
+    display: block;
+}
+
+
