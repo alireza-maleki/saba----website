@@ -1,0 +1,18 @@
+
+
+.icon-top {
+    animation: gototopbutton 0.8s linear infinite alternate-reverse; 
+}
+
+.icon-top:hover {
+    animation: none;
+}
+
+@keyframes gototopbutton {
+    0% {
+        transform: translateY(-1.6rem);
+    }
+    100% {
+        transform: translateY(1rem);
+    }
+}

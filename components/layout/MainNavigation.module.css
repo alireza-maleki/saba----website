@@ -1,0 +1,88 @@
+/* تنظیمات کلی منو همبرگر */
+.hamburger-menu {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  /* تنظیمات خط‌های همبرگر */
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    margin: 6px auto;
+    transition: transform 0.5s, opacity 0.3s;
+  }
+  
+  /* تنظیمات همبرگر فعال */
+  .hamburger.is-active .line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+  .hamburger.is-active .line:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.is-active .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
+  /* تنظیمات منوی همبرگر */
+  /* .menu-items {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 200px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+  } */
+  
+  /* تنظیمات فعال‌سازی منو */
+  /* .menu-items.animate__fadeInDown {
+    display: block;
+    animation-duration: 0.5s;
+  } */
+  
+
+  .navbar {
+    animation: mobileMenu 0.5s ease-in;
+  }
+
+  @keyframes mobileMenu {
+    from {clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);}
+    to {clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);}
+  }
+
+
+
+
+    .menu {
+      position: absolute;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      right: 0;
+      /* background-color: #ffffff99; */
+      padding: 1rem;
+      transition: all 0.3s;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    
+    .menu.open {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .menu.bg-white {
+      /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9); */
+      background-color: #fff;
+      /* opacity: 1; */
+      /* background-color: rgba(0, 0, 0, 0.6); */
+    }
+
+    .header.bg-white {
+      /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9); */
+      background-color: #fff;
+      opacity: 0.8;   
+      /* background-color: rgba(0, 0, 0, 0.6); */
+    }

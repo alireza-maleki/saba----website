@@ -12,6 +12,8 @@ import About from "../about/About";
 import Question from "../question/Question";
 import Contact from "../contact/Contact";
 import Footer from "../footer/Footer";
+import GoToTop from '../gototop/GoToTop';
+import ThreePic from '../threepic/ThreePic';
 
 
 // === Leaflet Map ===
@@ -34,6 +36,8 @@ const Home = () => {
       <Contact />
       <Map />
       <Footer />
+      <ThreePic />
+      <GoToTop />
     </Fragment>
   )
 }

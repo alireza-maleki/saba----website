@@ -4,24 +4,18 @@ import classes from "./About.module.css";
 const DUMMY_DATA = [
   {
     id: 1,
-    name: "Idaho",
-    desc: "Boise 2336 Young Road",
-    email: "office@yoursite.com",
-    phone: "(123)456 789 012",
+    name: "نور الدین علی آبادی",
+    desc: "معاونت مسافری سازمان راهداری و حمل ونقل کشور",
   },
   {
     id: 2,
-    name: "Missouri",
-    desc: "Liberty 3924 Traders Alley",
-    email: "office@yoursite.com",
-    phone: "(123)456 789 012",
+    name: "هادی علی آبادی",
+    desc: "مدیر عامل شرکت صنعت بار الکترونیک احیا",
   },
   {
     id: 3,
-    name: "Illinois",
-    desc: "Chicago 2655 Farland Street",
-    email: "office@yoursite.com",
-    phone: "(123)456 789 012",
+    name: "علی ملکی",
+    desc: "برنامه نویس فرانت اند",
   },
 ];
 
@@ -34,15 +28,13 @@ const About = () => {
           src="https://mobirise.com/extensions/glassm5/corporate/assets/images/background6.jpg"
         />
       </div>
-      <div className="absolute flex flex-col md:flex-row items-center justify-around w-[94%] md:w-2/3 top-[10%] md:top-[20%] h-[600px] md:h-[300px] container flex items-center border-2 border-white justify-between  bg-[#ffffff99] backdrop-blur-[5px] rounded-3xl">
+      <div className="absolute py-2 md:py-0 grid grid-cols-1 md:grid-cols-3 items-center px-8 md:px-0 w-[94%] md:w-2/3 top-[10%] md:top-[20%] h-[650px] md:h-[300px] container  border-2 border-white  bg-[#ffffff99] backdrop-blur-[5px] rounded-3xl">
         {DUMMY_DATA.map((item) => (
-          <div className="text-[#263d5a] text-center">
+          <div key={item.id} className="text-[#263d5a] text-center">
             <h1 className="font-bold text-2xl">{item.name}</h1>
-            <div className="py-3 text-lg">
+            <div className="py-4 space-y-2 text-lg">
               <p>{item.desc}</p>
-              <p>{item.email}</p>
             </div>
-            <p className="font-bold text-2xl">{item.phone}</p>
           </div>
         ))}
       </div>
