@@ -13,7 +13,7 @@ import Question from "../question/Question";
 import Contact from "../contact/Contact";
 import Footer from "../footer/Footer";
 import GoToTop from '../gototop/GoToTop';
-import ThreePic from '../threepic/ThreePic';
+import CardBank from '../card-bank/CardBank';
 
 
 // === Leaflet Map ===
@@ -26,6 +26,7 @@ const Home = () => {
       <Slider />
       <Category />
       <Khadamat />
+      <CardBank />
       <Feature />
       <Clients />
       <Team />
@@ -36,7 +37,6 @@ const Home = () => {
       <Contact />
       <Map />
       <Footer />
-      <ThreePic />
       <GoToTop />
     </Fragment>
   )
