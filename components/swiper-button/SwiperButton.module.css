@@ -1,6 +1,6 @@
 .arrow-prev {
   z-index: 999;
-  left: calc(100% - 80px);
+  left: calc(100% - 4%);
   color: #000;
   position: absolute;
   top: 50%;
@@ -20,7 +20,7 @@
 
 .arrow-next {
   z-index: 999;
-  right: calc(100% - 80px);
+  right: calc(100% - 5%);
   color: #000;
   position: absolute;
   top: 50%;

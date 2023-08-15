@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-around md:pt-32 md:px-36">
+        <div className="flex flex-col md:flex-row items-center justify-around md:pt-32 md:px-36 text-white">
           <div className="text-center md:text-start mt-24 md:mt-0 py-10 md:py-0">
             <h3 className="font-bold text-xl pb-4">درباره ما</h3>
             <p className="w-[100%] md:w-[70%] text-sm leading-7">

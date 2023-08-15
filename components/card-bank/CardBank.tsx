@@ -12,8 +12,8 @@ import {LuDatabaseBackup} from "react-icons/lu";
 
 const CardBank = () => {
   return (
-    <div className="w-screen min-h-[700px] pb-12 md:pb-0 pt-24 bg-[#f3f5f7]">
-      <div className="container mx-auto flex flex-col md:flex-row">
+    <div className="w-screen min-h-[600px] pb-12 md:pb-0 pt-24 bg-[#f3f5f7]">
+      <div className="container mx-auto flex items-center flex-col md:flex-row">
 
         <div className="w-full md:w-1/3 h-full px-4">
           <ThreePic />

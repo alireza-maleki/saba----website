@@ -26,24 +26,6 @@
     transform: translateY(-7px) rotate(-45deg);
   }
   
-  /* تنظیمات منوی همبرگر */
-  /* .menu-items {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 200px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-  } */
-  
-  /* تنظیمات فعال‌سازی منو */
-  /* .menu-items.animate__fadeInDown {
-    display: block;
-    animation-duration: 0.5s;
-  } */
-  
 
   .navbar {
     animation: mobileMenu 0.5s ease-in;

@@ -1,56 +1,59 @@
 import React from "react";
 import Image from 'next/image'
 
+import { AiOutlineMinus } from 'react-icons/ai';
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 
-import { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "../swiper-button/Button";
-import { AiOutlineMinus } from 'react-icons/ai';
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const DUMMY_SWIPER_SLIDER = [
   {
     id: 1,
-    src: "https://wagon-asa.com/wp-content/uploads/2022/06/wagon-asa-logo.png",
+    src: "/images/moshtariha/1.png",
     app: "اپلیکیشن صبا بار",
   },
   {
     id: 2,
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Refah.svg/1200px-Refah.svg.png",
+    src: "/images/moshtariha/2.png",
     app: "اتوماسیون",
   },
   {
     id: 3,
-    src: "https://ehyarail.com/wp-content/uploads/2022/07/LOGO.png",
+    src: "/images/moshtariha/3.png",
     app: "اتصال به درگاه بانکی",
   },
   {
     id: 4,
-    src: "https://media.sedayebourse.ir/d/2021/08/31/3/1002520.jpg",
+    src: "/images/moshtariha/4.jpg",
     app: "اتصال به درگاه بانکی",
   },
   {
     id: 5,
-    src: "https://alomaterial.ir/images/shop/upload/neyriz-cement-logo.png",
+    src: "/images/moshtariha/5.png",
     app: "اتصال به درگاه بانکی",
   },
   {
     id: 6,
-    src: "https://cdn.ccom.ir/uploads/logo/1653315018-logo-01G3RM27TC1QMWYTB6QK4N1RGQ.png",
+    src: "/images/moshtariha/6.png",
     app: "اتصال به درگاه بانکی",
   },
   {
     id: 7,
-    src: "https://ehyairon.com/wp-content/uploads/2022/02/ehya-logo-black.png",
+    src: "/images/moshtariha/7.png",
     app: "اتصال به درگاه بانکی",
   },
   {
     id: 8,
-    src: "https://ehyarail.com/wp-content/uploads/2022/07/Ehya-Rail_Iranian-Gold-Logo-1-300x143.png",
+    src: "/images/moshtariha/8.png",
     app: "اتصال به درگاه بانکی",
   },
 ];
@@ -62,7 +65,7 @@ const Clients = () => {
       <div className="w-full h-[1000px] md:h-full">
         <img
           className="w-full h-full backdrop-blur-3xl object-cover"
-          src="https://mobirise.com/extensions/glassm5/corporate/assets/images/mbr-2.jpg"
+          src="/images/client-pic/1.jpg"
         />
       </div>
 
@@ -76,7 +79,11 @@ const Clients = () => {
 
         <div className="grid grid-cols-1 grid-rows-1 mx-auto px-2 w-full md:w-2/3">
           <Swiper
-            autoplay={{ delay: 1000 }}
+            modules={[Autoplay, Pagination, Navigation]} 
+            autoplay={{
+              delay: 1500,
+              disableOnInteraction: false,
+            }}
             spaceBetween={0}
             slidesPerView={3}
             loop={true}
@@ -120,16 +127,6 @@ const Clients = () => {
           </Swiper>
 
 
-          {/* 
-          <div className="flex items-center justify-center bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl p-4 border-2 borer-white w-96 h-44">
-            <img className="w-32" src="https://mobirise.com/extensions/glassm5/corporate/assets/images/1.png"/>
-          </div>
-          <div className="flex items-center justify-center bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl p-4 border-2 borer-white w-96 h-44">
-            <img className="w-32" src="https://mobirise.com/extensions/glassm5/corporate/assets/images/2.png"/>
-          </div>
-          <div className="flex items-center justify-center bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl p-4 border-2 borer-white w-96 h-44">
-            <img className="w-32" src="https://mobirise.com/extensions/glassm5/corporate/assets/images/3.png"/>
-          </div> */}
         </div>
       </div>
     </div>

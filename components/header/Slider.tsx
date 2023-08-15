@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import classes from "./Slider.module.css";
 
 
 // Import Swiper styles
@@ -12,54 +11,47 @@ import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperButton from "../swiper-button/SwiperButton";
 
-import SwiperCore, { Autoplay } from "swiper/core";
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const DUMMY_SWIPER_SLIDER = [
   {
     id: 1,
-    src: "https://mobirise.com/extensions/glassm5/corporate/assets/images/background6.jpg",
+    src: "/images/slider/1.jpg",
     app: "اپلیکیشن صبا بار",
   },
   {
     id: 2,
-    src: "https://mobirise.com/extensions/glassm5/corporate/assets/images/mbr-5.jpg",
+    src: "/images/slider/2.jpg",
     app: "اتوماسیون",
   },
   {
     id: 3,
-    src: "https://mobirise.com/extensions/glassm5/corporate/assets/images/mbr.jpg",
+    src: "/images/slider/3.jpg",
     app: "اتصال به درگاه بانکی",
   },
 ];
 
-SwiperCore.use([Autoplay]);
 
-const Slider = () => {
 
-  const [swiper, setSwiper] = useState(null);
-  
-
-  // === autoplay for swiper.js ===
-  useEffect(() => {
-    if (swiper) {
-      swiper.autoplay.start();
-    }
-  }, [swiper]);
-  
+const Slider = () => {  
   
   return (
     <div className="relative w-screen h-screen  bg-gray-300 overflow-hidden" id="/">
       <div className="z-50 md:z-0 w-full h-full">
-        <Swiper          
+        <Swiper       
+          modules={[Autoplay, Pagination, Navigation]}  
+          // navigation
+          pagination={{ clickable: true }}  
           autoplay={{
-            delay: 3000,
+            delay: 2500,
             disableOnInteraction: false,
           }}
           spaceBetween={20}
           slidesPerView={1}
           loop={true}
-          speed={1300}
-          className={`w-full h-full ${classes.swiper} `}
+          speed={3500}
+          className={`w-full h-full`}
         >
           {DUMMY_SWIPER_SLIDER.map((item) => (
             <SwiperSlide className="w-full h-full" key={item.id}>
@@ -72,8 +64,8 @@ const Slider = () => {
               />
 
               <div className="md:block w-full h-full flex items-center justify-center overflow-hidden">
-                <div className="z-40 backdrop-blur-[1px] absolute text-red-500 top-[20%] md:left-[20%] bg-[#ffffff99] py-16 p-10 rounded-3xl w-[400px] md:w-[800px] h-[500px] border-2 border-white ">
-                  <div className="absolute w-50 h-50 md:w-100 md:h-100 p-16 md:p-28 rounded-full bg-[#ffffff99] -top-8 -right-6 md:-top-16 md:-right-[18%] backdrop-blur-[1px] border-2 border-white"></div>
+                <div className="z-0 backdrop-blur-[1px] absolute text-red-500 top-[20%] md:left-[20%] bg-[#ffffff99] py-16 p-10 rounded-3xl w-[400px] md:w-[800px] h-[500px] border-2 border-white ">
+                  <div className="absolute z-10 w-50 h-50 md:w-100 md:h-100 p-16 md:p-28 rounded-full bg-[#ffffff99] -top-8 -right-6 md:-top-16 md:-right-[18%] backdrop-blur-[1px] border-2 border-white"></div>
 
                   <div className="text-center md:text-start flex flex-col justify-between w-full h-full">
                     <div className="md:max-w-full">
@@ -101,7 +93,7 @@ const Slider = () => {
                     </div>
                   </div>
 
-                  <div className="z-0 absolute w-100 h-100 p-14 rounded-full bg-[#ffffff99] -bottom-8 -left-16 -z-50 backdrop-blur-[1px] border-2 border-white"></div>
+                  <div className="absolute w-100 h-100 p-14 rounded-full bg-[#ffffff99] -bottom-8 -left-16 backdrop-blur-[1px] border-2 border-white"></div>
                 </div>
               </div>
             </SwiperSlide>

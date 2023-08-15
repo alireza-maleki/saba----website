@@ -6,7 +6,7 @@ const Khadamat = () => {
       <div className="w-full h-[1900px] md:h-[900px] bg-fixed">
         <img
           className="w-full h-full object-cover"
-          src="https://mobirise.com/extensions/glassm5/corporate/assets/images/mbr-5.jpg "
+          src="/images/slider/2.jpg"
         />
       </div>
 
@@ -14,7 +14,7 @@ const Khadamat = () => {
         <div className="w-full md:w-1/4 p-8 md:self-start h-full">
           <img
             className="rounded-xl w-full h-full object-cover"
-            src="https://mobirise.com/extensions/glassm5/corporate/assets/images/mbr.jpeg"
+            src="/images/khadamat/1.jpeg"
           />
         </div>
 

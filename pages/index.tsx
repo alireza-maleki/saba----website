@@ -7,7 +7,7 @@ const index = () => {
 
   
 
-  useEffect(() => {
+  // useEffect(() => {
     // window.addEventListener('scroll', function() {
     //   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -21,7 +21,7 @@ const index = () => {
     //   }
     //   console.log(scrollTop); // مقدار اسکرول از بالا به‌روز رسانی می‌شود
     // });
-  }, []);
+  // }, []);
 
 
 

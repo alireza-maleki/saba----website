@@ -21,7 +21,7 @@ const Team = () => {
           <div className={`relative w-[400px] h-[400px] cursor-pointer overflow-hidden flex items-center justify-center ${classes['user-img']}`}>
             <img
               className="rounded-3xl w-full h-full object-cover"
-              src="https://mobirise.com/extensions/glassm5/corporate/assets/images/team2.jpg"
+              src="/images/team/1.jpg"
             />
             <div className={`absolute bottom-[10%] md:bottom-[-10%] ${classes['media']}`}>
               <div className="mx-auto space-y-2 text-center">
@@ -39,7 +39,7 @@ const Team = () => {
           <div className={`relative w-[400px] h-[400px] cursor-pointer overflow-hidden flex items-center justify-center ${classes['user-img']}`}>
             <img
               className="rounded-3xl w-full h-full object-cover"
-              src="https://mobirise.com/extensions/glassm5/corporate/assets/images/team1.jpg"
+              src="/images/team/2.jpg"
             />
             <div className={`absolute bottom-[10%] md:bottom-[-10%] ${classes['media']}`}>
               <div className="text-center space-y-2">
@@ -57,7 +57,7 @@ const Team = () => {
           <div className={`relative w-[400px] h-[400px] cursor-pointer overflow-hidden flex items-center justify-center ${classes['user-img']}`}>
             <img
               className="rounded-3xl w-full h-full object-cover"
-              src="https://mobirise.com/extensions/glassm5/corporate/assets/images/team3.jpg"
+              src="/images/team/3.jpg"
             />
             <div className={`absolute bottom-[10%] md:bottom-[-10%] ${classes['media']}`}>
             <div className="text-center space-y-2">
