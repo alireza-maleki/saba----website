@@ -41,33 +41,35 @@ const Contact = () => {
 
   return (
     <div
-      className="relative  w-screen min-h-[700px] flex items-center justify-center"
+      className="relative w-screen min-h-[700px] flex items-center justify-center"
       id="contact"
     >
-      <div className="w-full h-[1500px] md:h-[900px] bg-fixed">
+      <div className="w-full h-[1500px] lg:h-[900px] bg-fixed">
         <img
           className="w-full h-full object-cover"
           src="/images/slider/3.jpg"
         />
       </div>
-      <div className="absolute top-[10%] min-h-[600px] space-y-8 md:space-y-0 container flex flex-col md:flex-row items-center justify-between rounded-3xl">
-        <div className="min-h-[450px] text-center md:text-start flex flex-col md:self-start justify-between">
-          <div className=" text-center md:text-start text-white">
+
+      <div className="absolute top-[10%] min-h-[600px] space-y-8 lg:space-y-0 container flex flex-col lg:flex-row items-center justify-between rounded-3xl">
+        
+        <div className="bg-[#ffffff99] backdrop-blur-[5px] rounded-3xl p-8 text-black min-h-[450px] text-center lg:text-start flex flex-col lg:self-start justify-between">
+          <div className="text-center lg:text-start text-black">
             <p>تماس با ما</p>
             <h1
-              className="font-bold text-3xl pt-4 w-full md:w-1/2"
+              className="font-bold text-3xl pt-4 w-full lg:w-1/2"
               style={{ direction: "ltr" }}
             >
               ۰۲۱ - ۲۲۷۷۸۲۰۰
             </h1>
           </div>
 
-          <div className="text-white text-lg">
+          <div className="text-black text-lg">
             <p className="font-bold">آدرس :</p>
             <p>تهران - خیابان پاسداران - بین نیستان نهم و دهم - پلاک ۳۰۴ -</p>
           </div>
 
-          <div className="text-white text-lg">
+          <div className="text-blak text-lg">
             <p className="font-bold">کد پستی : </p>
             <p className="text-2xl">۱۹۴۶۸۵۳۶۱۴</p>
           </div>
@@ -79,7 +81,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="py-14 md:py-24 border-2 border-white w-[94%] md:w-1/2 min-h-[500px] bg-[#ffffff99] backdrop-blur-[5px] rounded-3xl">
+        <div className="py-14 lg:py-24 border-2 border-white w-[94%] lg:w-1/2 min-h-[500px] bg-[#ffffff99] backdrop-blur-[5px] rounded-3xl">
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-around mx-auto w-[90%]">
             
             <div className="relative w-full h-full px-2 pb-8">
@@ -176,6 +178,7 @@ const Contact = () => {
             </button>
           </div>
         </div>
+
       </div>
     </div>
   );

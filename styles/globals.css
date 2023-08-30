@@ -16,6 +16,11 @@
   height: 55vh !important;
   border-radius: 30px;
 }
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+
 
 /* === Swiper.js Bullet Style === */
 .swiper-pagination-bullet-active {

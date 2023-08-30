@@ -38,7 +38,7 @@ const Question = () => {
   return (
     <div className="w-screen flex items-center justify-center overflow-hidden min-h-[600px] p-4 md:p-12 bg-gradient-to-r from-[#d6f4fd] to-[#e0e7fe]">
       <div className="min-h-[600px]">
-        <div className="container mx-auto py-10 w-full max-h-full md:w-1/2 bg-[#e8f4fe] p-6 md:p-12 rounded-[40px] drop-shadow-2xl">
+        <div className="container mx-auto py-10 w-full max-h-full md:w-[90%] lg:w-1/2 bg-[#e8f4fe] p-6 md:p-12 rounded-[40px] drop-shadow-2xl">
           <div className="text-center md:text-start">
             <h1 className="font-bold text-xl md:text-2xl text-[#263d5a] pb-2 md:pb-4">
               به چه می اندیشیم ؟{" "}

@@ -16,9 +16,9 @@ const DUMMY_DATA = [
   },
   {
     id: 3,
-    name: "مسعود قاسمی",
+    name: "علیرضا نواب پور",
     desc: "عضو هیئت مدیره",
-    src: "/images/modiran/3.png",
+    src: "/images/modiran/3.jpg",
   },
 ];
 
@@ -35,12 +35,12 @@ const About = () => {
         {DUMMY_DATA.map((item) => (
           <div key={item.id} className="text-[#263d5a] text-center flex flex-col items-center">
             <img
-              className="w-[70px] md:w-[100px] h-[70px] md:h-[100px] rounded-full border-none mb-8"
+              className="w-[70px] md:w-[70px] lg:w-[100px] h-[70px] md:h-[70px] lg:h-[100px] rounded-full border-none mb-8"
               src={item.src}
               alt={item.name}
             />
-            <h1 className="font-bold text-xl">{item.name}</h1>
-            <div className="py-4 space-y-2 text-md">
+            <h1 className="font-bold text-xl md:text-sm lg:text-xl">{item.name}</h1>
+            <div className="py-4 space-y-2 text-md md:text-xs lg:text-lg">
               <p>{item.desc}</p>
             </div>
           </div>

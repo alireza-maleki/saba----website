@@ -1,7 +1,4 @@
 import React from "react";
-import Image from 'next/image'
-
-import { AiOutlineMinus } from 'react-icons/ai';
 
 // Import Swiper styles
 import "swiper/css";
@@ -77,7 +74,7 @@ const Clients = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 grid-rows-1 mx-auto px-2 w-full md:w-2/3">
+        <div className="grid grid-cols-1 grid-rows-1 mx-auto px-2 w-full md:w-[90%] lg:w-[70%]">
           <Swiper
             modules={[Autoplay, Pagination, Navigation]} 
             autoplay={{
@@ -85,7 +82,7 @@ const Clients = () => {
               disableOnInteraction: false,
             }}
             spaceBetween={0}
-            slidesPerView={3}
+            // slidesPerView={3}
             loop={true}
             speed={1000}
             className={`w-full h-full`}
@@ -101,7 +98,7 @@ const Clients = () => {
               768: {
                   slidesPerView: 3,
               },
-              992: {
+              1024: {
                   slidesPerView: 3,
               },
               1200: {
@@ -117,7 +114,7 @@ const Clients = () => {
           >
             {DUMMY_SWIPER_SLIDER.map((item) => (
               <SwiperSlide className="w-full h-full cursor-pointer" key={item.id}>
-                <div className="flex items-center justify-center bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl p-4 border-2 borer-white w-48 h-32 md:w-96 md:h-44">
+                <div className="flex items-center justify-center bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl p-4 border-2 borer-white w-48 h-32 lg:w-58 xl:w-72 2xl:w-[90%] lg:h-44">
                   <img className="w-26 md:w-32" src={item.src} width={100} height={50} alt="slide"/>
                 </div>
               </SwiperSlide>

@@ -20,9 +20,10 @@ const Category = () => {
 
           <div className="container py-10 border-2 border-white drop-shadow-2xl backdrop-blur-3xl rounded-3xl w-full md:w-2/3 mx-auto bg-[#ffffff99] drop-shadow-2xl backdrop-blur-3xl">
 
-            <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-1 gap-8 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:grid-rows-1 gap-8 py-4">
+              
               <div className="flex flex-col space-y-4 p-4 text-center">
-                <span className="font-bold text-4xl md:text-5xl text-[#263d5a]">
+                <span className="font-bold text-3xl lg:text-4xl text-[#263d5a]">
                   {counterOn && (
                     <CountUp start={0} end={21095} duration={2} delay={0} />
                   )}
@@ -31,7 +32,7 @@ const Category = () => {
               </div>
 
               <div className="flex flex-col space-y-4 p-4 text-center">
-                <span className="font-bold text-4xl md:text-5xl text-[#263d5a]">
+                <span className="font-bold text-3xl lg:text-4xl text-[#263d5a]">
                   {counterOn && (
                     <CountUp start={0} end={31} duration={2} delay={0} />
                   )}
@@ -40,7 +41,7 @@ const Category = () => {
               </div>
 
               <div className="flex flex-col space-y-4 p-4 text-center">
-                <span className="font-bold text-4xl md:text-5xl text-[#263d5a]">
+                <span className="font-bold text-3xl lg:text-4xl text-[#263d5a]">
                   {counterOn && (
                     <CountUp start={0} end={19789} duration={2} delay={0} />
                   )}
@@ -49,7 +50,7 @@ const Category = () => {
               </div>
 
               <div className="flex flex-col space-y-4 p-4 text-center">
-                <span className="font-bold text-4xl md:text-5xl text-[#263d5a]">
+                <span className="font-bold text-3xl lg:text-4xl text-[#263d5a]">
                   {counterOn && (
                     <CountUp start={0} end={48} duration={2} delay={0} />
                   )}

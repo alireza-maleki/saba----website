@@ -93,13 +93,13 @@ const ThreePic = () => {
       // onMouseUp={handleMouseUp}
     >
         <div className={`${classes.face} ${classes.front}`}>
-          <img src="/images/cart/front.JPG" alt="front" />
+          <img src="/images/cart/front.jpg" alt="front" />
         </div>
 
         <div className={classes.spacer}></div>
 
         <div className={`${classes.face} ${classes.back}`}>
-          <img src="/images/cart/back.JPG" alt="Back" />
+          <img src="/images/cart/back.jpg" alt="Back" />
         </div>
       </div>
     </div>

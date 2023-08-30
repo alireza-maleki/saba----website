@@ -8,6 +8,8 @@ import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 const SwiperButton = () => {
   const swiper = useSwiper();
 
+  console.log(swiper)
+
   return (
     <div>
       <RiArrowLeftSLine
