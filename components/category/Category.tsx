@@ -26,7 +26,6 @@ const Category = () => {
 
         <div className="bg-[#ffffff99] lg:py-14 md:px-10 drop-shadow-2xl border-2 border-white backdrop-blur-3xl rounded-3xl mt-10 flex flex-wrap  flex-row lg:flex-col">
 
-          {/* flex flex-col md:flex-row items-center justify-center text-black md:space-x-10 py-8 */}
           <div className="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 gap-4 text-black">
             <div className="flex flex-col items-center justify-center lg:items-start space-y-4 p-4">
               <p>
@@ -62,7 +61,6 @@ const Category = () => {
             </div>
           </div>
 
-          {/* flex flex-col md:flex-row items-center justify-center text-black md:space-x-10 py-8 */}
           <div className="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 gap-4 text-black">
 
             <div className="flex flex-col items-center justify-center lg:items-start space-y-4 p-4">

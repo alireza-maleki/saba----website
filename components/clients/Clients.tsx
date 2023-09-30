@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -60,9 +61,12 @@ const Clients = () => {
   return (
     <div className="relative w-screen min-h-[550px] md:h-[550px]">
       <div className="w-full h-[1000px] md:h-full">
-        <img
+        <Image
+          width={700}
+          height={700}
+          alt={"client"}
           className="w-full h-full backdrop-blur-3xl object-cover"
-          src="/images/client-pic/1.jpg"
+          src="/images/client-pic/client.jpg"
         />
       </div>
 
@@ -115,7 +119,7 @@ const Clients = () => {
             {DUMMY_SWIPER_SLIDER.map((item) => (
               <SwiperSlide className="w-full h-full cursor-pointer" key={item.id}>
                 <div className="flex items-center justify-center bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl p-4 border-2 borer-white w-48 h-32 lg:w-58 xl:w-72 2xl:w-[90%] lg:h-44">
-                  <img className="w-26 md:w-32" src={item.src} width={100} height={50} alt="slide"/>
+                  <Image className="w-26 md:w-32" src={item.src} width={100} height={50} alt={"slider"}/>
                 </div>
               </SwiperSlide>
             ))}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -19,7 +20,7 @@ const DUMMY_SWIPER_SLIDER = [
     id: 1,
     title:
       "اپلیکیشن صبابار سامانه اینترنتی اعلام بار و حمل بار است. اپلیکیشن اعلام بار که به صورت نسخه سوپر اپلیکیشن موبایل است و امکان ثبت درخواست حمل بار توسط کاربران و باربری ها و پذیرش آن توسط رانندگان است. به عبارت دیگر صبابار پل ارتباطی رانندگان و شرکتهای حمل ونقل در بستر اینترنت است.",
-    src: "/images/slider/1.jpg",
+    src: "/images/slider/app.jpeg",
     app: "اپلیکیشن صبا بار",
     isValid: true,
   },
@@ -27,7 +28,7 @@ const DUMMY_SWIPER_SLIDER = [
     id: 2,
     title:
       "پرداخت الکترونیکی بارنامه های جاده ای، ریلی، هوایی و دریایی و پرداخت الکترونیکی حقوق، دستمزد و ... شرکت های درخواست کننده حمل بار از طریق پورتال سامانه صبا بار و کنترل و مدیریت بارهای حمل شده و هزینه آن از طریق مدیریت بارنامه ها و سامانه پرداخت صباپی.",
-    src: "/images/slider/2.jpg",
+    src: "/images/slider/barname.jpg",
     app: "سیستم مدیریت عملیات بار",
     isValid: false,
   },
@@ -35,7 +36,7 @@ const DUMMY_SWIPER_SLIDER = [
     id: 3,
     title:
       "نرم افزار راهکار سازمانی صبا (ERP) جهت مدیریت فرآیندهای درون سازمانی به صورت خاص برای شرکت¬های لجستیکی طراح شده است اما برای سازمان¬های دیگر هم قابلیت پیاده سازی را دارد. از ویژگیهای خاص این محصول تعریف روابط سازمانی به صورت شرکت¬های  هلدینگی است.",
-    src: "/images/slider/3.jpg",
+    src: "/images/slider/erp.png",
     app: "سامانه نرم افزار راهکار سازمانی صبا",
     isValid: false,
   },
@@ -73,12 +74,12 @@ const Slider = () => {
         >
           {DUMMY_SWIPER_SLIDER.map((item) => (
             <SwiperSlide className="w-full h-full" key={item.id}>
-              <img
-                className="w-full h-full object-cover"
+              <Image
+                className="w-full h-full "
                 src={item.src}
                 alt="slider"
-                width={500}
-                height={500}
+                width={1000}
+                height={1000}
               />
 
               <div className="md:block w-full h-full flex items-center justify-center overflow-hidden bg-red-200">
@@ -108,7 +109,7 @@ const Slider = () => {
                             نسخه اندروید
                           </button>
                           <Link
-                            href="https://app.sababar.net/login"
+                            href="https://app.sababar.com/login"
                             className="border border-indigo-300 border-2xl px-10 py-2 rounded-full text-white text-sm md:text-lg bg-gradient-to-r from-indigo-900 to-indigo-300 hover:-translate-y-1 transition duration-300 ease-in"
                           >
                             نسخه تحت وب

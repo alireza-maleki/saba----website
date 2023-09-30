@@ -1,20 +1,27 @@
 import React from "react";
+import Image from "next/image";
 
 const Khadamat = () => {
   return (
-    <div className="relative w-screen min-h-[700px] flex items-center justify-center">
-      <div className="w-full h-[2500px] lg:h-[900px] bg-fixed">
-        <img
+    <div className="relative w-screen min-h-[700px] flex items-center justify-center mt-0">
+      <div className="bg-white w-full h-[1900px] md:h-[2300px] lg:h-[750px] bg-fixed">
+        <Image
+          width={800}
+          height={800}
+          alt={"khadamat"}
           className="w-full h-full object-cover"
-          src="/images/slider/2.jpg"
+          src="/images/khadamat/ai.png"
         />
       </div>
 
-      <div className="absolute top-[10%] min-h-[600px] container w-[94%] lg:w-full flex flex-col lg:flex-row items-center border-2 border-white justify-between bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl">
+      <div className="absolute top-[10%] min-h-[600px] container w-[94%] lg:w-full flex flex-col lg:flex-row items-center border-2 border-white justify-between bg-[#ffffff99] backdrop-blur-[1px] border-2 border-[#f1f1f1] shadow-xl rounded-3xl">
         <div className="w-full lg:w-1/4 p-8 lg:self-start h-full">
-          <img
+          <Image
+            width={200}
+            height={200}
+            alt={"khadamat"}
             className="rounded-xl w-full h-full object-cover"
-            src="/images/khadamat/1.jpeg"
+            src="/images/khadamat/khadamat.jpeg"
           />
         </div>
 

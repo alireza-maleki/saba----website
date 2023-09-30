@@ -100,9 +100,6 @@ const MainNavigation = () => {
       </div>
 
       {/* === Header for Moblie view === */}
-      {isOpen ? (
-        // ${classes.menu} ${isOpen ? classes.open : ''}
-        // z-50 absolute border-t-2 border-slate-300 border-slate-300 text-center left-0 top-[100%] h-[250px] w-screen bg-[#ffffff99] block md:hidden ${classes['navbar']}
         <div
           className={`z-50 text-center bg-[#ffffff99] left-0 h-[250px] w-screen block md:hidden ${
             classes["navbar"]
@@ -189,7 +186,6 @@ const MainNavigation = () => {
             </li>
           </ul>
         </div>
-      ) : null}
     </div>
   );
 };

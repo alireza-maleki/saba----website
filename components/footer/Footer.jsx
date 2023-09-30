@@ -9,7 +9,7 @@ import classes from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <div className="w-screen h-[600px] bg-[#131729] py-16" id="footer">
+    <div className="w-screen min-h-[600px] bg-[#131729] py-16" id="footer">
       <div className="container mx-auto p-8">
         <div className="flex flex-col md:flex-row text-center md:text-start space-y-8 md:space-y-0 items-center justify-around">
           <div>
@@ -53,44 +53,6 @@ const Footer = () => {
               شماره تماس شرکت اقدام نمایید.
             </p>
           </div>
-
-          {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-3 grid-rows-1 w-full">
-            <div className="flex flex-col text-center md:text-start items-center md:items-start">
-              <p className="font-bold text-xl pb-3">شرکت</p>
-              <ul
-                className={`flex flex-col items-center text-[13px] font-thin space-y-2 ${classes["list-item"]}`}
-              >
-                <li>درباره ما</li>
-                <li>مشاغل</li>
-                <li>ارتباط</li>
-                <li>وبلاگ</li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col text-center md:text-start items-center md:items-start">
-              <p className="font-bold text-xl pb-3">سایر راه ها</p>
-              <ul
-                className={`flex flex-col items-center text-[13px] font-thin space-y-2 ${classes["list-item"]}`}
-              >
-                <li>قابلیت</li>
-                <li>تیم</li>
-                <li>قیمت ها</li>
-                <li>اطلاعات</li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col text-center md:text-start items-center md:items-start">
-              <p className="font-bold text-xl pb-3">حمایت</p>
-              <ul
-                className={`flex flex-col items-center text-[13px] font-thin space-y-2 ${classes["list-item"]}`}
-              >
-                <li>ارتباطات</li>
-                <li>تیم ما</li>
-                <li>سرویس ها</li>
-                <li>راهنما</li>
-              </ul>
-            </div>
-          </div> */}
 
           <div className="w-full md:w-1/4 self-end flex flex-col md:flex-row items-center">
             <a

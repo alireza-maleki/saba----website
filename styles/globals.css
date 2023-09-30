@@ -24,13 +24,18 @@
 
 /* === Swiper.js Bullet Style === */
 .swiper-pagination-bullet-active {
-  background-color: #bae6fd !important;
+  background-color: #01acbc !important;
 }
 
 .swiper-pagination-bullet {
-  padding: 8px;
+  padding: 6px;
 }
 
+
+/* === React Toast === */
+.Toastify__toast-body {
+  text-align: right;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
