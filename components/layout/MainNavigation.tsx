@@ -99,7 +99,7 @@ const MainNavigation = () => {
         </ul>
       </div>
 
-      <div className="w-[120px] md:w-[200px] cursor-pointer">
+      <WebLogBtn href="/" className="w-[120px] md:w-[200px] cursor-pointer">
         <Image
           className="object-cover w-full h-full"
           src="/images/logo/saba.png"
@@ -107,7 +107,7 @@ const MainNavigation = () => {
           height={80}
           alt="logo"
         />
-      </div>
+      </WebLogBtn>
 
       {/* === Header for Moblie view === */}
         <div
@@ -197,7 +197,8 @@ const MainNavigation = () => {
 
             <li className="cursor-pointer hover:text-black">
               <WebLogBtn
-                href="/"
+                onOpenMenuHandler={handleMenuToggle}
+                href="/freight-quote"
               >
                  استعلام کرایه
               </WebLogBtn>

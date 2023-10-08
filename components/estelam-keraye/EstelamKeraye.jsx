@@ -295,7 +295,8 @@ const EstelamKeraye = () => {
             {showPrice && (
               <div className="w-full h-full bg-[#334f6c] p-8 text-white">
                 <p className="text-center font-bold text-xl mb-4">
-                  {calculatePrice?.toLocaleString("en-US")} تومان
+                  {calculatePrice?.toLocaleString("en-US")} 
+                  <span className="mr-3">ريال</span>
                 </p>
                 {/* <button className="w-full py-2 rounded-lg bg-[#01acbc] text-md">
                   ثبت
@@ -311,7 +312,7 @@ const EstelamKeraye = () => {
 
               <p
                 className={`py-10 ${
-                  !toggleColor ? "text-[#01acbc]" : "text-[#000]"
+                  toggleColor ? "text-[#01acbc]" : "text-[#000]"
                 }`}
               >
                 ۱. مبدا و مقصد حمل بار و همچنین نوع کامیون و نوع بارگیر را مشخص
