@@ -78,6 +78,7 @@ const EstelamKeraye = () => {
         draggable: false,
         progress: undefined,
       })
+      // === set price calculated ===
       setCalculatePrice(data.Content.AutoCalculatedPrice);
       setToggleColor(true);
       setShowPrice(true);
@@ -157,7 +158,7 @@ const EstelamKeraye = () => {
       </div>
 
       <div className="container mx-auto flex items-center justify-center mt-10">
-        <div className="w-[75%] space-y-8 md:space-y-0 flex flex-col md:flex-row items-center">
+        <div className="w-[90%] md:w-[75%] space-y-8 md:space-y-0 flex flex-col md:flex-row items-center">
 
           <div className="md:self-start w-[100%] md:w-[70%] bg-white shadow-xl rounded-md">
             <div className="container mx-auto p-8">
@@ -175,8 +176,8 @@ const EstelamKeraye = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
-                <div className="w-[48%]">
+              <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="w-[100%] md:w-[48%]">
                   <label className="text-[#000]">
                     مبدا
                     <span className="text-rose-500 pr-1">*</span>
@@ -202,7 +203,7 @@ const EstelamKeraye = () => {
                   />
                 </div>
 
-                <div className="w-[48%]">
+                <div className="w-[100%] md:w-[48%] my-4 md:my-0">
                   <label className="text-[#000]">
                     مقصد
                     <span className="text-rose-500 pr-1">*</span>
@@ -231,8 +232,8 @@ const EstelamKeraye = () => {
 
 
               {/* === second inputs === */}
-              <div className="flex items-center justify-between mt-10">
-                <div className="w-[48%] flex flex-col">
+              <div className="flex flex-col md:flex-row items-center justify-between md:mt-10">
+                <div className="w-[100%] md:w-[48%] flex flex-col">
                   <label className="text-[#000]">
                     تناژ
                     <span className="text-rose-500 pr-1">*</span>
@@ -245,7 +246,7 @@ const EstelamKeraye = () => {
                   />
                 </div>
 
-                <div className="w-[48%]">
+                <div className="w-[100%] md:w-[48%] my-4 md:my-0">
                   <label className="text-[#000]">
                     نوع وسیله نقلیه
                     <span className="text-rose-500 pr-1">*</span>
