@@ -220,7 +220,7 @@ const Contact = () => {
             <button
               onClick={() => formik.handleSubmit()}
               type="submit"
-              className="w-[88%] py-4 bg-[#263d5a] rounded-3xl hover:-translate-y-1 transition duration-300 ease-in"
+              className="w-[88%] text-white py-4 bg-[#263d5a] rounded-3xl hover:-translate-y-1 transition duration-300 ease-in"
             >
               {isLoading ? <Bounce className="Bounce" color="#01acbc" size={28} speed={1} animating={true} /> : "ثبت"}
             </button>

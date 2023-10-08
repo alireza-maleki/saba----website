@@ -59,9 +59,9 @@ const MainNavigation = () => {
             </Link>
           </li>
 
-          <li className="cursor-pointer hover:text-black">
+          {/* <li className="cursor-pointer hover:text-black">
             <WebLogBtn href="http://blog.sababar.com">وبلاگ</WebLogBtn>
-          </li>
+          </li> */}
 
           <li className="cursor-pointer hover:text-black">
             <Link
@@ -86,6 +86,16 @@ const MainNavigation = () => {
               درباره ما
             </Link>
           </li>
+
+          <li className="cursor-pointer">
+              <WebLogBtn
+                className="text-base px-4 py-2 rounded-lg bg-[#334f6c] hover:bg-[#335f6c] text-white"
+                href="/freight-quote"
+              >
+                 استعلام کرایه حمل
+              </WebLogBtn>
+            </li>
+            
         </ul>
       </div>
 
@@ -140,7 +150,7 @@ const MainNavigation = () => {
               </Link>
             </li>
 
-            <li className="cursor-pointer hover:text-black">
+            {/* <li className="cursor-pointer hover:text-black">
               <Link
                 to=""
                 spy={true}
@@ -153,7 +163,7 @@ const MainNavigation = () => {
               >
                 وبلاگ
               </Link>
-            </li>
+            </li> */}
 
             <li className="cursor-pointer hover:text-black">
               <Link
@@ -184,6 +194,15 @@ const MainNavigation = () => {
                 درباره ما
               </Link>
             </li>
+
+            <li className="cursor-pointer hover:text-black">
+              <WebLogBtn
+                href="/"
+              >
+                 استعلام کرایه
+              </WebLogBtn>
+            </li>
+
           </ul>
         </div>
     </div>

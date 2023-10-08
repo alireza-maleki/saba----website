@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
+import Link from "next/link";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -17,42 +19,42 @@ const DUMMY_SWIPER_SLIDER = [
   {
     id: 1,
     src: "/images/moshtariha/1.png",
-    app: "اپلیکیشن صبا بار",
+    href: "https://wagon-asa.com/"
   },
   {
     id: 2,
     src: "/images/moshtariha/2.png",
-    app: "اتوماسیون",
+    href: "https://refah.ir/"
   },
   {
     id: 3,
     src: "/images/moshtariha/3.png",
-    app: "اتصال به درگاه بانکی",
+    href: "https://ehyarail.com/"
   },
   {
     id: 4,
     src: "/images/moshtariha/4.jpg",
-    app: "اتصال به درگاه بانکی",
+    href: "http://ptec-ir.com/"
   },
   {
     id: 5,
     src: "/images/moshtariha/5.png",
-    app: "اتصال به درگاه بانکی",
+    href: "https://infosaba.com/"
   },
   {
     id: 6,
     src: "/images/moshtariha/6.png",
-    app: "اتصال به درگاه بانکی",
+    href: "http://vagonyadak.ccom.ir/"
   },
   {
     id: 7,
     src: "/images/moshtariha/7.png",
-    app: "اتصال به درگاه بانکی",
+    href: "http://www.ehyaa.com/"
   },
   {
     id: 8,
-    src: "/images/moshtariha/8.png",
-    app: "اتصال به درگاه بانکی",
+    src: "/images/moshtariha/9.png",
+    href: "https://mapnammt.com/"
   },
 ];
 
@@ -118,9 +120,9 @@ const Clients = () => {
           >
             {DUMMY_SWIPER_SLIDER.map((item) => (
               <SwiperSlide className="w-full h-full cursor-pointer" key={item.id}>
-                <div className="flex items-center justify-center bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl p-4 border-2 borer-white w-48 h-32 lg:w-58 xl:w-72 2xl:w-[90%] lg:h-44">
+                <Link href={item.href} className="flex items-center justify-center bg-[#ffffff99] backdrop-blur-[2px] rounded-3xl p-4 border-2 borer-white w-48 h-32 lg:w-58 xl:w-72 2xl:w-[90%] lg:h-44">
                   <Image className="w-26 md:w-32" src={item.src} width={100} height={50} alt={"slider"}/>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
 

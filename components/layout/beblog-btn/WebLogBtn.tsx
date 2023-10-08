@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const WebLogBtn = (props: any) => {
   return (
-    <Link href={props.href}>
+    <Link className={props.className} href={props?.href} >
         {props.children}
     </Link>
   )

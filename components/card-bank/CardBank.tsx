@@ -51,7 +51,7 @@ const CardBank = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-between px-4 md:px-16">
 
-            <div className="p-4 mb-8 md:mb-0 md:p-8">
+            <div className="w-full md:w-1/2 p-4 mb-8 md:mb-0 md:p-8">
               <div className="flex items-center justify-between pb-5">
                 <p className={`font-bold text-lg md:text-xl ${classes['title-border']}`}>پشتیبانی ۲۴/۷</p>
                 <TbBus className="text-3xl md:text-5xl" />
@@ -63,7 +63,7 @@ const CardBank = () => {
               </p>
             </div>
 
-            <div className="p-4 mb-8 md:mb-0 md:p-8">
+            {/* <div className="p-4 mb-8 md:mb-0 md:p-8">
               <div className="flex items-center justify-between pb-5">
                 <p className={`font-bold text-lg md:text-xl ${classes['title-border']}`}>عضو شبکه شتاب</p>
                 <LuDatabaseBackup className="text-3xl md:text-5xl" />
@@ -71,7 +71,7 @@ const CardBank = () => {
               <p className="text-sm leading-8">
               صبا کارت همانند تمامی کارت های بانکی، عضو شبکه شتاب می باشد. تمامی ATM ها و دستگاه های POS در سطح کشور، میزبان صبا کارت هستند.
               </p>
-            </div>
+            </div> */}
 
           </div>
 
