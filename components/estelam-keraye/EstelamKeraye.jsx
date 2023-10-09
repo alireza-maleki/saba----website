@@ -56,7 +56,10 @@ const EstelamKeraye = ({ allCity }) => {
   const [originCityId, setOriginCityId] = useState();
   const [equipmentClassId, setEquipmentClassId] = useState();
   const [recaptchaResponse, setRecaptchaResponse] = useState();
+
   const [carTypeLabel, setCarTypeLabel] = useState();
+  const [destinationLabel, setDestinationLabel] = useState();
+  const [originLabel, setOriginLabel] = useState();
 
   const [disabledCarType, setDisabledCarType] = useState(true);
 
@@ -150,6 +153,16 @@ const EstelamKeraye = ({ allCity }) => {
     setCarTypeLabel(e?.lable);
   }
 
+  const destinationHandler = (e) => {
+    setDestinationCityId(e?.value);
+    setDestinationLabel(e?.label);
+  }
+
+  const originHandler = (e) => {
+    setOriginCityId(e?.value);
+    setOriginLabel(e?.label);
+  }
+
   // === save recaptcha ===
   const handleRecaptchaChange = (value) => {
     setRecaptchaResponse(value);
@@ -200,7 +213,8 @@ const EstelamKeraye = ({ allCity }) => {
                     styles={customStyles}
                     options={showCity}
                     placeholder="انتخاب کنید"
-                    onChange={(e) => setOriginCityId(e?.value)}
+                    // value={originLabel}
+                    onChange={originHandler}
                     isLoading={showCity ? false : true}
                     loadingMessage={() => (
                       <Bounce
@@ -224,7 +238,8 @@ const EstelamKeraye = ({ allCity }) => {
                     styles={customStyles}
                     options={showCity}
                     placeholder="انتخاب کنید"
-                    onChange={(e) => setDestinationCityId(e?.value)}
+                    // value={destinationLabel}
+                    onChange={destinationHandler}
                     isLoading={showCity ? false : true}
                     loadingMessage={() => (
                       <Bounce
@@ -303,7 +318,7 @@ const EstelamKeraye = ({ allCity }) => {
           <div className="md:self-start w-[100%] md:w-[30%] bg-white shadow-xl rounded-md md:mr-3 text-black overflow-hidden">
             {showPrice && (
               <div className="flex flex-col items-center justify-center w-full h-full bg-[#334f6c] p-8 text-white">
-                <div className="flex flex-col items-center justiy-between text-center">
+                <div className="border-b-1 border-[#aaa] w-[100%] mb-[12px] flex flex-col items-center justiy-between text-center">
                   <p className="pb-4 text-md">حداکثر قیمت : </p>
                   <p className="text-center font-bold text-xl mb-4">
                     {calculatePriceMax?.toLocaleString("en-US")}
