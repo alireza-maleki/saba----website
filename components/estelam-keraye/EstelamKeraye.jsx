@@ -259,7 +259,6 @@ const EstelamKeraye = ({ allCity }) => {
                     <span className="text-rose-500 pr-1">*</span>
                   </label>
                   <Select
-                    // onMenuClose={() => setEquipmentClassId(null)}
                     isDisabled={disabledCarType ? true : null}
                     name="نوع وسیله نقلیه"
                     onMenuOpen={carTypeHandler}
@@ -303,35 +302,33 @@ const EstelamKeraye = ({ allCity }) => {
 
           <div className="md:self-start w-[100%] md:w-[30%] bg-white shadow-xl rounded-md md:mr-3 text-black overflow-hidden">
             {showPrice && (
-              <div className="w-full h-full bg-[#334f6c] p-8 text-white">
-                <div className="flex items-center justiy-between text-center font-bold text-xl ">
+              <div className="flex flex-col items-center justify-center w-full h-full bg-[#334f6c] p-8 text-white">
+                <div className="flex flex-col items-center justiy-between text-center">
+                  <p className="pb-4 text-md">حداکثر قیمت : </p>
                   <p className="text-center font-bold text-xl mb-4">
                     {calculatePriceMax?.toLocaleString("en-US")}
                     <span className="mr-2">ريال</span>
                   </p>
-                  <p>حداکثر قیمت : </p>
                 </div>
 
-                <div className="flex items-center justiy-between text-center font-bold text-xl ">
+                <div className="flex flex-col items-center justiy-between text-center">
+                  <p className="pb-4 text-md">کف قیمت : </p>
                   <p className="text-center font-bold text-xl mb-4">
                     {calculatePriceMin?.toLocaleString("en-US")}
                     <span className="mr-2">ريال</span>
                   </p>
-                  <p>کف قیمت : </p>
                 </div>
               </div>
             )}
 
-            <div className="p-8 text-sm">
+            <div className="p-6 text-sm">
               <p>
                 اگر می‌خواهید هزینه حمل و نقل کالاهایتان را محاسبه کرده و سپس
                 برای باربری آن اقدام کنید، به ترتیب مراحل زیر را انجام دهید:
               </p>
 
               <p
-                className={`pt-4 text-sm ${
-                  toggleColor ? "text-[#01acbc]" : "text-[#000]"
-                }`}
+                className="pt-4 text-sm text-[#01acbc]"
               >
                 ۱. مبدا و مقصد حمل بار و همچنین تناژ و نوع وسیله نقلیه را مشخص
                 کنید و سپس دکمه محاسبه کرایه حمل بار را کلیک کنید تا کرایه
