@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import classes from "./EstelamKeraye.module.css";
 
 import axios from "axios";
 
-import Select from "react-select";
+// import Select from "react-select";
+import dynamic from 'next/dynamic';
+const Select = dynamic(() => import('react-select'), { ssr: false });
 
 //  === react-toast ===
 import { toast } from "react-toastify";
@@ -13,7 +15,6 @@ import { Bounce } from "react-activity";
 
 // === reCAPTCHA ===
 import ReCAPTCHA from "react-google-recaptcha";
-
 
 // === React Select custom style ===
 const customStyles = {
@@ -37,27 +38,34 @@ const customStyles = {
   }),
 };
 
-const EstelamKeraye = () => {
+const EstelamKeraye = ({ allCity }) => {
+  const recaptchaRef = useRef();
+
   const [progress, setProgress] = useState(0);
   const [toggleColor, setToggleColor] = useState(false);
   const [showPrice, setShowPrice] = useState(false);
 
-  const [userOrigin, setUserOrigin] = useState();
-  const [userDestination, setUserDestination] = useState();
+  const [showCity, setShowCity] = useState();
   const [vehicleType, setVehicleType] = useState();
 
-  const [calculatePrice, setCalculatePrice] = useState();
+  const [calculatePriceMax, setCalculatePriceMax] = useState();
+  const [calculatePriceMin, setCalculatePriceMin] = useState();
 
   const [Tonnage, setTonnage] = useState();
   const [destinationCityId, setDestinationCityId] = useState();
   const [originCityId, setOriginCityId] = useState();
   const [equipmentClassId, setEquipmentClassId] = useState();
   const [recaptchaResponse, setRecaptchaResponse] = useState();
+  const [carTypeLabel, setCarTypeLabel] = useState();
 
+  const [disabledCarType, setDisabledCarType] = useState(true);
+
+  useEffect(() => {
+    setShowCity(allCity.Content.List);
+  }, []);
 
   // === Send user data to server ===
   const dataFetchHandler = async () => {
-    
     try {
       const { data } = await axios.post(
         "https://api.sababar.net:8443/SababarWebsite/CalculatedPrice",
@@ -77,11 +85,13 @@ const EstelamKeraye = () => {
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-      })
+      });
       // === set price calculated ===
-      setCalculatePrice(data.Content.AutoCalculatedPrice);
+      setCalculatePriceMax(data.Content.AutoCalculatedPrice);
+      setCalculatePriceMin(data.Content.BaseCalculatedPrice);
       setToggleColor(true);
       setShowPrice(true);
+      recaptchaRef.current.reset();
       if (progress == 100) {
         return;
       } else {
@@ -96,22 +106,13 @@ const EstelamKeraye = () => {
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-      })
+      });
     }
-  };
-
-  // === get origin and destination city ===
-  const getOriginHandler = async () => {
-    const { data } = await axios.get(
-      "https://api.sababar.net:8443/SababarWebsite/CitiesAndTheirProvinces"
-    );
-    setUserOrigin(data.Content.List);
-    setUserDestination(data.Content.List);
   };
 
   // === get user car type ===
   const carTypeHandler = async () => {
-    if (!Tonnage || Tonnage >= 25) {
+    if (!Tonnage || Tonnage > 25) {
       return;
     }
     const { data } = await axios.get(
@@ -121,9 +122,16 @@ const EstelamKeraye = () => {
   };
 
   const tonnageHandler = (e) => {
+    setCarTypeLabel(null);
+    if (e.target.value > 25 || !e.target.value || e.target.value == 0) {
+      setDisabledCarType(true);
+    } else {
+      setDisabledCarType(false);
+    }
+
     if (e.target.value > 25) {
       toast.error("تناژ بیش از حد مجاز است", {
-        position: "top-right",
+        position: "bottom-left",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -137,6 +145,10 @@ const EstelamKeraye = () => {
     }
   };
 
+  const carTypeChangeHadler = (e) => {
+    setEquipmentClassId(e?.value);
+    setCarTypeLabel(e?.lable);
+  }
 
   // === save recaptcha ===
   const handleRecaptchaChange = (value) => {
@@ -144,9 +156,10 @@ const EstelamKeraye = () => {
   };
 
 
+
   return (
     <div className="w-full min-h-screen bg-[#f1f1f1] pt-2 py-10 md:py-0">
-      <div className="w-full mt-[100px] w-screen h-[200px] bg-[#334f6c] p-8 pt-16">
+      <div className="text-white w-full mt-[100px] w-screen h-[200px] bg-[#334f6c] p-8 pt-16">
         <h1
           className={`flex align-center justify-start text-3xl font-bold ${classes.title}`}
         >
@@ -159,7 +172,6 @@ const EstelamKeraye = () => {
 
       <div className="container mx-auto flex items-center justify-center mt-10">
         <div className="w-[90%] md:w-[75%] space-y-8 md:space-y-0 flex flex-col md:flex-row items-center">
-
           <div className="md:self-start w-[100%] md:w-[70%] bg-white shadow-xl rounded-md">
             <div className="container mx-auto p-8">
               <div className="bg-[#E8E8E8] rounded-xl w-full mb-8">
@@ -184,14 +196,12 @@ const EstelamKeraye = () => {
                   </label>
                   <Select
                     name="مبدا"
-                    onMenuOpen={getOriginHandler}
-                    className="mt-2"
+                    className="mt-2 cursor-pointer"
                     styles={customStyles}
-                    options={userOrigin}
+                    options={showCity}
                     placeholder="انتخاب کنید"
-                    // value={originCityId}
                     onChange={(e) => setOriginCityId(e?.value)}
-                    isLoading={userOrigin ? false : true}
+                    isLoading={showCity ? false : true}
                     loadingMessage={() => (
                       <Bounce
                         style={{ direction: "ltr" }}
@@ -210,14 +220,12 @@ const EstelamKeraye = () => {
                   </label>
                   <Select
                     name="مقصد"
-                    onMenuOpen={getOriginHandler}
                     className="mt-2"
                     styles={customStyles}
-                    options={userDestination}
+                    options={showCity}
                     placeholder="انتخاب کنید"
-                    // value={destinationCityId}
                     onChange={(e) => setDestinationCityId(e?.value)}
-                    isLoading={userDestination ? false : true}
+                    isLoading={showCity ? false : true}
                     loadingMessage={() => (
                       <Bounce
                         style={{ direction: "ltr" }}
@@ -229,7 +237,6 @@ const EstelamKeraye = () => {
                   />
                 </div>
               </div>
-
 
               {/* === second inputs === */}
               <div className="flex flex-col md:flex-row items-center justify-between md:mt-10">
@@ -252,14 +259,16 @@ const EstelamKeraye = () => {
                     <span className="text-rose-500 pr-1">*</span>
                   </label>
                   <Select
+                    // onMenuClose={() => setEquipmentClassId(null)}
+                    isDisabled={disabledCarType ? true : null}
                     name="نوع وسیله نقلیه"
                     onMenuOpen={carTypeHandler}
                     className="mt-2"
                     styles={customStyles}
                     options={vehicleType}
                     placeholder="انتخاب کنید"
-                    // value={equipmentClassId}
-                    onChange={(e) => setEquipmentClassId(e?.value)}
+                    value={carTypeLabel}
+                    onChange={carTypeChangeHadler}
                     isLoading={vehicleType ? false : true}
                     loadingMessage={() => (
                       <Bounce
@@ -275,6 +284,7 @@ const EstelamKeraye = () => {
 
               <div className="mx-auto w-full md:w-full flex items-center justify-center pt-8">
                 <ReCAPTCHA
+                  ref={recaptchaRef}
                   sitekey="6LcpaGwoAAAAAMRQPiaWNRtYF3IqWg4EApzxLCVj"
                   onChange={handleRecaptchaChange}
                 />
@@ -294,34 +304,41 @@ const EstelamKeraye = () => {
           <div className="md:self-start w-[100%] md:w-[30%] bg-white shadow-xl rounded-md md:mr-3 text-black overflow-hidden">
             {showPrice && (
               <div className="w-full h-full bg-[#334f6c] p-8 text-white">
-                <p className="text-center font-bold text-xl mb-4">
-                  {calculatePrice?.toLocaleString("en-US")} 
-                  <span className="mr-3">ريال</span>
-                </p>
-                {/* <button className="w-full py-2 rounded-lg bg-[#01acbc] text-md">
-                  ثبت
-                </button> */}
+                <div className="flex items-center justiy-between text-center font-bold text-xl ">
+                  <p className="text-center font-bold text-xl mb-4">
+                    {calculatePriceMax?.toLocaleString("en-US")}
+                    <span className="mr-2">ريال</span>
+                  </p>
+                  <p>حداکثر قیمت : </p>
+                </div>
+
+                <div className="flex items-center justiy-between text-center font-bold text-xl ">
+                  <p className="text-center font-bold text-xl mb-4">
+                    {calculatePriceMin?.toLocaleString("en-US")}
+                    <span className="mr-2">ريال</span>
+                  </p>
+                  <p>کف قیمت : </p>
+                </div>
               </div>
             )}
 
-            <div className="p-8">
+            <div className="p-8 text-sm">
               <p>
                 اگر می‌خواهید هزینه حمل و نقل کالاهایتان را محاسبه کرده و سپس
                 برای باربری آن اقدام کنید، به ترتیب مراحل زیر را انجام دهید:
               </p>
 
               <p
-                className={`py-10 ${
+                className={`pt-4 text-sm ${
                   toggleColor ? "text-[#01acbc]" : "text-[#000]"
                 }`}
               >
-                ۱. مبدا و مقصد حمل بار و همچنین نوع کامیون و نوع بارگیر را مشخص
-                کنید و سپس دکمه استعلام قیمت را کلیک کنید تا کرایه پیشنهادی
-                ترابرنت برای شما نمایش داده شود.
+                ۱. مبدا و مقصد حمل بار و همچنین تناژ و نوع وسیله نقلیه را مشخص
+                کنید و سپس دکمه محاسبه کرایه حمل بار را کلیک کنید تا کرایه
+                پیشنهادی صبا بار برای شما نمایش داده شود.
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
