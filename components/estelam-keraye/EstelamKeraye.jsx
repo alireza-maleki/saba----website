@@ -4,8 +4,8 @@ import classes from "./EstelamKeraye.module.css";
 import axios from "axios";
 
 // import Select from "react-select";
-import dynamic from 'next/dynamic';
-const Select = dynamic(() => import('react-select'), { ssr: false });
+import dynamic from "next/dynamic";
+const Select = dynamic(() => import("react-select"), { ssr: false });
 
 //  === react-toast ===
 import { toast } from "react-toastify";
@@ -63,6 +63,12 @@ const EstelamKeraye = ({ allCity }) => {
 
   const [disabledCarType, setDisabledCarType] = useState(true);
 
+  const [isConditionExecutedOrigin, setIsConditionExecutedOrigin] = useState(false);
+  const [isConditionExecutedDestination, setIsConditionExecutedDestination] = useState(false);
+  const [isConditionExecutedTonnage, setIsConditionExecutedTonnage] = useState(false);
+  const [isConditionExecutedCarType, setIsConditionExecutedCarType] = useState(false);
+
+
   useEffect(() => {
     setShowCity(allCity.Content.List);
   }, []);
@@ -98,9 +104,12 @@ const EstelamKeraye = ({ allCity }) => {
       if (progress == 100) {
         return;
       } else {
-        setProgress(progress + 100);
+        setProgress(progress + 50);
       }
     } catch (error) {
+      recaptchaRef.current.reset();
+      setCalculatePriceMax(0);
+      setCalculatePriceMin(0);
       toast.error(error?.response?.data.Message, {
         position: "bottom-left",
         autoClose: 3000,
@@ -130,6 +139,11 @@ const EstelamKeraye = ({ allCity }) => {
       setDisabledCarType(true);
     } else {
       setDisabledCarType(false);
+
+      if(!isConditionExecutedTonnage) {
+        setProgress((prevState) => prevState + 12.5);
+        setIsConditionExecutedTonnage(true);
+      }
     }
 
     if (e.target.value > 25) {
@@ -151,24 +165,37 @@ const EstelamKeraye = ({ allCity }) => {
   const carTypeChangeHadler = (e) => {
     setEquipmentClassId(e?.value);
     setCarTypeLabel(e?.lable);
-  }
+
+      if(!isConditionExecutedCarType) {
+        setProgress((prevState) => prevState + 12.5);
+        setIsConditionExecutedCarType(true);
+      }
+  };
 
   const destinationHandler = (e) => {
     setDestinationCityId(e?.value);
     setDestinationLabel(e?.label);
-  }
+
+      if(!isConditionExecutedDestination) {
+        setProgress((prevState) => prevState + 12.5);
+        setIsConditionExecutedDestination(true);
+      }
+  };
 
   const originHandler = (e) => {
     setOriginCityId(e?.value);
     setOriginLabel(e?.label);
-  }
+    
+    if(!isConditionExecutedOrigin) {
+      setProgress((prevState) => prevState + 12.5);
+      setIsConditionExecutedOrigin(true);
+    }
+  };
 
   // === save recaptcha ===
   const handleRecaptchaChange = (value) => {
     setRecaptchaResponse(value);
   };
-
-
 
   return (
     <div className="w-full min-h-screen bg-[#f1f1f1] pt-2 py-10 md:py-0">
@@ -189,7 +216,7 @@ const EstelamKeraye = ({ allCity }) => {
             <div className="container mx-auto p-8">
               <div className="bg-[#E8E8E8] rounded-xl w-full mb-8">
                 <div
-                  className="rounded-xl text-center"
+                  className="rounded-xl text-center text-white"
                   style={{
                     width: `${progress}%`,
                     height: "20px",
@@ -318,7 +345,10 @@ const EstelamKeraye = ({ allCity }) => {
           <div className="md:self-start w-[100%] md:w-[30%] bg-white shadow-xl rounded-md md:mr-3 text-black overflow-hidden">
             {showPrice && (
               <div className="flex flex-col items-center justify-center w-full h-full bg-[#334f6c] p-8 text-white">
-                <div className="border-b-1 border-[#aaa] w-[100%] mb-[12px] flex flex-col items-center justiy-between text-center">
+                <div
+                  className="border-b-2 border-[#aaa] w-[100%] mb-[12px] flex flex-col items-center justiy-between text-center"
+                  style={{ borderBottom: "1px solid #aaa" }}
+                >
                   <p className="pb-4 text-md">حداکثر قیمت : </p>
                   <p className="text-center font-bold text-xl mb-4">
                     {calculatePriceMax?.toLocaleString("en-US")}
@@ -342,9 +372,7 @@ const EstelamKeraye = ({ allCity }) => {
                 برای باربری آن اقدام کنید، به ترتیب مراحل زیر را انجام دهید:
               </p>
 
-              <p
-                className="pt-4 text-sm text-[#01acbc]"
-              >
+              <p className="pt-4 text-sm text-[#01acbc]">
                 ۱. مبدا و مقصد حمل بار و همچنین تناژ و نوع وسیله نقلیه را مشخص
                 کنید و سپس دکمه محاسبه کرایه حمل بار را کلیک کنید تا کرایه
                 پیشنهادی صبا بار برای شما نمایش داده شود.
