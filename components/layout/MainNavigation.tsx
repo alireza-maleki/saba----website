@@ -48,13 +48,13 @@ const MainNavigation = () => {
       <div className="hidden md:block md:w-3/4 lg:w-2/4">
         <ul className="w-full flex items-center justify-between md:text-md lg:text-xl text-[#263d5a]">
           <li className="cursor-pointer hover:text-black">
-            <Link to="/" spy={true} smooth={true} offset={0} duration={4000}>
+            <Link to="/" href="/" spy={true} smooth={true} offset={0} duration={2000}>
               صفحه اصلی
             </Link>
           </li>
 
           <li className="cursor-pointer hover:text-black">
-            <Link to="" spy={true} smooth={true} offset={0} duration={500}>
+            <Link to="" href="" spy={true} smooth={true} offset={0} duration={2000}>
               محصولات
             </Link>
           </li>
@@ -66,10 +66,11 @@ const MainNavigation = () => {
           <li className="cursor-pointer hover:text-black">
             <Link
               to="contact"
+              href="contact"
               spy={true}
               smooth={true}
               offset={0}
-              duration={4000}
+              duration={2000}
             >
               تماس با ما
             </Link>
@@ -78,10 +79,11 @@ const MainNavigation = () => {
           <li className="cursor-pointer hover:text-black">
             <Link
               to="footer"
+              href="footer"
               spy={true}
               smooth={true}
               offset={0}
-              duration={4000}
+              duration={2000}
             >
               درباره ما
             </Link>
@@ -123,10 +125,11 @@ const MainNavigation = () => {
             <li className="cursor-pointer hover:text-black">
               <Link
                 to="/"
+                href="/"
                 spy={true}
                 smooth={true}
                 offset={0}
-                duration={4000}
+                duration={2000}
                 onClick={() => {
                   handleMenuToggle();
                 }}
@@ -138,10 +141,11 @@ const MainNavigation = () => {
             <li className="cursor-pointer hover:text-black">
               <Link
                 to=""
+                href=""
                 spy={true}
                 smooth={true}
                 offset={0}
-                duration={4000}
+                duration={2000}
                 onClick={() => {
                   handleMenuToggle();
                 }}
@@ -168,10 +172,11 @@ const MainNavigation = () => {
             <li className="cursor-pointer hover:text-black">
               <Link
                 to="contact"
+                href="contact"
                 spy={true}
                 smooth={true}
                 offset={100}
-                duration={4000}
+                duration={2000}
                 onClick={() => {
                   handleMenuToggle();
                 }}
@@ -183,10 +188,11 @@ const MainNavigation = () => {
             <li className="cursor-pointer hover:text-black">
               <Link
                 to="footer"
+                href="footer"
                 spy={true}
                 smooth={true}
                 offset={0}
-                duration={4000}
+                duration={2000}
                 onClick={() => {
                   handleMenuToggle();
                 }}
