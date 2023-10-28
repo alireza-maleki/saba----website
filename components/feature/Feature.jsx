@@ -12,10 +12,10 @@ const Category = () => {
         <div className="w-screen min-h-[600px] px-4 py-16 bg-gradient-to-r from-[#b7eafd] to-[#c2d4fc]">
           <div className="mx-auto container md:px-4 w-full md:w-2/3 text-center md:text-start text-black py-12">
             <p className="text-2xl pb-4 font-bold">ویژگی های ما : </p>
-            <h1 className="text-lg px-6 md:px-0">
+            <h2 className="text-lg px-6 md:px-0">
               شبکه عظیم صبا کارت که تلفیقی از شبکه نظام بانکی و حمل و نقل کشوری
               می باشد. در سراسر ایران عزیزمان فعال است.
-            </h1>
+            </h2>
           </div>
 
           <div className="container py-10 border-2 border-white drop-shadow-2xl backdrop-blur-3xl rounded-3xl w-full md:w-2/3 mx-auto bg-[#ffffff99] drop-shadow-2xl backdrop-blur-3xl">

@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import Image from "next/image";
 
 import axios from "axios";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 import { Bounce } from "react-activity";
@@ -56,19 +56,21 @@ const Contact = () => {
         );
         console.log(response.data);
         const responseMassage = `شماره پیگیری شما : ${response.data.Content} <br /> ${response.data.Message}`;
-        toast.success(<div dangerouslySetInnerHTML={{ __html: responseMassage }} />, {
-          position: 'bottom-left',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        
+        toast.success(
+          <div dangerouslySetInnerHTML={{ __html: responseMassage }} />,
+          {
+            position: "bottom-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
       } catch (error) {
         toast.error("خطا در ارسال درخواست", {
-          position: 'bottom-left',
+          position: "bottom-left",
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -103,12 +105,12 @@ const Contact = () => {
         <div className="bg-[#ffffff99] w-[90%] lg:w-[30%] backdrop-blur-[5px] rounded-3xl p-8 text-black min-h-[450px] text-center lg:text-start flex flex-col lg:self-start justify-between">
           <div className="text-center lg:text-start text-black">
             <p>تماس با ما</p>
-            <h1
+            <h3
               className="font-bold text-3xl pt-4 w-full lg:w-1/2"
               style={{ direction: "ltr" }}
             >
               ۰۲۱ - ۲۲۷۷۸۲۰۰
-            </h1>
+            </h3>
           </div>
 
           <div className="text-black text-lg">
@@ -222,7 +224,17 @@ const Contact = () => {
               type="submit"
               className="w-[88%] text-white py-4 bg-[#263d5a] rounded-3xl hover:-translate-y-1 transition duration-300 ease-in"
             >
-              {isLoading ? <Bounce className="Bounce" color="#01acbc" size={28} speed={1} animating={true} /> : "ثبت"}
+              {isLoading ? (
+                <Bounce
+                  className="Bounce"
+                  color="#01acbc"
+                  size={28}
+                  speed={1}
+                  animating={true}
+                />
+              ) : (
+                "ثبت"
+              )}
             </button>
           </div>
         </div>

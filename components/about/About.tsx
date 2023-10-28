@@ -43,7 +43,7 @@ const About = () => {
               src={item.src}
               alt={item.name}
             />
-            <h1 className="font-bold text-xl md:text-sm lg:text-xl">{item.name}</h1>
+            <h3 className="font-bold text-xl md:text-sm lg:text-xl">{item.name}</h3>
             <div className="py-4 space-y-2 text-md md:text-xs lg:text-lg">
               <p>{item.desc}</p>
             </div>

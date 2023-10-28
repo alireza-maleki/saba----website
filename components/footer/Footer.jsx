@@ -14,12 +14,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row text-center md:text-start space-y-8 md:space-y-0 items-center justify-around">
           <div>
             <p className="text-[#b0b0b1] pb-2 text-lg">تماس با ما</p>
-            <h1
+            <h3
               className="text-[#5e71db] font-bold text-2xl md:text-3xl"
               style={{ direction: "ltr" }}
             >
               ۰۲۱ - ۲۲۷۷۸۳۰۰
-            </h1>
+            </h3>
           </div>
 
           <div>

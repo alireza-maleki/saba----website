@@ -51,9 +51,9 @@ const Video = () => {
           >
             <CgShapeTriangle className="text-3xl mb-2" />
           </div>
-          <h1 className="text-white font-bold text-lg md:text-2xl pt-10 z-50">
+          <h3 className="text-white font-bold text-lg md:text-2xl pt-10 z-50">
             برای تماشا کلیک کنید
-          </h1>
+          </h3>
         </div>
       )}
     </div>

@@ -40,9 +40,9 @@ const Question = () => {
       <div className="min-h-[600px]">
         <div className="container mx-auto py-10 w-full max-h-full md:w-[90%] lg:w-1/2 bg-[#e8f4fe] p-6 md:p-12 rounded-[40px] drop-shadow-2xl">
           <div className="text-center md:text-start">
-            <h1 className="font-bold text-xl md:text-2xl text-[#263d5a] pb-2 md:pb-4">
+            <h2 className="font-bold text-xl md:text-2xl text-[#263d5a] pb-2 md:pb-4">
               به چه می اندیشیم ؟{" "}
-            </h1>
+            </h2>
           </div>
 
           <div className="pt-8 md:pt-12">
@@ -65,43 +65,3 @@ const Question = () => {
 };
 
 export default Question;
-
-// import React from "react";
-// import { Accordion, AccordionItem } from "@nextui-org/react";
-// import {AnchorIcon} from './AnchorIcon';
-// import {MoonIcon} from './MoonIcon';
-// import {SunIcon} from './SunIcon';
-
-// const Question = () => {
-//   const defaultContent =
-//     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-
-//   return (
-//     <div className="w-screen flex items-center justify-center overflow-hidden h-[700px] p-4 md:p-12 bg-gradient-to-r from-[#d6f4fd] to-[#e0e7fe]">
-//       <div className="container py-10 w-full h-full md:w-1/2 mx-auto bg-[#e8f4fe] p-6 md:p-12 rounded-[40px] drop-shadow-2xl">
-//         <div className="text-center md:text-start">
-//           <h1 className="font-bold text-xl md:text-2xl text-[#263d5a] pb-2 md:pb-4">
-//             به چه می اندیشیم ؟{" "}
-//           </h1>
-//         </div>
-
-//         <div className="pt-8 md:pt-12">
-
-//         </div>
-//       </div>
-//     </div>
-// <Accordion>
-//   <AccordionItem key="anchor" aria-label=""  title="Anchor">
-//     {defaultContent}
-//   </AccordionItem>
-//   <AccordionItem key="moon" aria-label="Moon"  title="Moon">
-//     {defaultContent}
-//   </AccordionItem>
-//   <AccordionItem key="sun" aria-label="Sun"  title="Sun">
-//     {defaultContent}
-//   </AccordionItem>
-// </Accordion>
-//   );
-// };
-
-// export default Question;
