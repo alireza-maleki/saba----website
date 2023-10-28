@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import classes from "./EstelamKeraye.module.css";
 
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
+
 import axios from "axios";
 
 // import Select from "react-select";
@@ -63,11 +66,16 @@ const EstelamKeraye = ({ allCity }) => {
 
   const [disabledCarType, setDisabledCarType] = useState(true);
 
-  const [isConditionExecutedOrigin, setIsConditionExecutedOrigin] = useState(false);
-  const [isConditionExecutedDestination, setIsConditionExecutedDestination] = useState(false);
-  const [isConditionExecutedTonnage, setIsConditionExecutedTonnage] = useState(false);
-  const [isConditionExecutedCarType, setIsConditionExecutedCarType] = useState(false);
+  const [isConditionExecutedOrigin, setIsConditionExecutedOrigin] =
+    useState(false);
+  const [isConditionExecutedDestination, setIsConditionExecutedDestination] =
+    useState(false);
+  const [isConditionExecutedTonnage, setIsConditionExecutedTonnage] =
+    useState(false);
+  const [isConditionExecutedCarType, setIsConditionExecutedCarType] =
+    useState(false);
 
+  const [counterOn, setCounterOn] = useState(false);
 
   useEffect(() => {
     setShowCity(allCity.Content.List);
@@ -140,7 +148,7 @@ const EstelamKeraye = ({ allCity }) => {
     } else {
       setDisabledCarType(false);
 
-      if(!isConditionExecutedTonnage) {
+      if (!isConditionExecutedTonnage) {
         setProgress((prevState) => prevState + 12.5);
         setIsConditionExecutedTonnage(true);
       }
@@ -166,30 +174,40 @@ const EstelamKeraye = ({ allCity }) => {
     setEquipmentClassId(e?.value);
     setCarTypeLabel(e?.lable);
 
-      if(!isConditionExecutedCarType) {
-        setProgress((prevState) => prevState + 12.5);
-        setIsConditionExecutedCarType(true);
-      }
+    if (!isConditionExecutedCarType) {
+      setProgress((prevState) => prevState + 12.5);
+      setIsConditionExecutedCarType(true);
+    }
   };
 
   const destinationHandler = (e) => {
     setDestinationCityId(e?.value);
     setDestinationLabel(e?.label);
 
-      if(!isConditionExecutedDestination) {
-        setProgress((prevState) => prevState + 12.5);
-        setIsConditionExecutedDestination(true);
-      }
+    if (!isConditionExecutedDestination) {
+      setProgress((prevState) => prevState + 12.5);
+      setIsConditionExecutedDestination(true);
+    }
   };
 
   const originHandler = (e) => {
     setOriginCityId(e?.value);
     setOriginLabel(e?.label);
-    
-    if(!isConditionExecutedOrigin) {
+
+    if (!isConditionExecutedOrigin) {
       setProgress((prevState) => prevState + 12.5);
       setIsConditionExecutedOrigin(true);
     }
+
+      // === delete reaplce for search dropdown ===
+      const formattedSearch = e?.label.replace(/\s/g, ''); // حذف فاصله‌ها از رشته جستجو
+
+      const filteredOptions = showCity.filter((city) => {
+      const formattedOption = city.label.replace(/\s/g, ''); // حذف فاصله‌ها از رشته استان
+      return formattedOption.includes(formattedSearch);
+    });``
+
+    setShowCity((prevState) => [...prevState, filteredOptions]);
   };
 
   // === save recaptcha ===
@@ -197,191 +215,206 @@ const EstelamKeraye = ({ allCity }) => {
     setRecaptchaResponse(value);
   };
 
+
   return (
-    <div className="w-full min-h-screen bg-[#f1f1f1] pt-2 py-10 md:py-0">
-      <div className="text-white w-full mt-[100px] w-screen h-[200px] bg-[#334f6c] p-8 pt-16">
-        <h1
-          className={`flex align-center justify-start text-3xl font-bold ${classes.title}`}
-        >
-          استعلام کرایه حمل بار
-        </h1>
-        <p className="pt-6 font-bold text-xl">
-          تجارت سودمند با محاسبه هوشمند کرایه حمل بار
-        </p>
-      </div>
+    <ScrollTrigger onEnter={() => setCounterOn(true)}>
+      <div className="w-full min-h-screen bg-[#f1f1f1] pt-2 py-10 md:py-0">
+        <div className="text-white w-full mt-[100px] w-screen h-[200px] bg-[#334f6c] p-8 pt-16">
+          <h1
+            className={`flex align-center justify-start text-3xl font-bold ${classes.title}`}
+          >
+            استعلام کرایه حمل بار
+          </h1>
+          <p className="pt-6 font-bold text-xl">
+            تجارت سودمند با محاسبه هوشمند کرایه حمل بار
+          </p>
+        </div>
 
-      <div className="container mx-auto flex items-center justify-center mt-10">
-        <div className="w-[90%] md:w-[75%] space-y-8 md:space-y-0 flex flex-col md:flex-row items-center">
-          <div className="md:self-start w-[100%] md:w-[70%] bg-white shadow-xl rounded-md">
-            <div className="container mx-auto p-8">
-              <div className="bg-[#E8E8E8] rounded-xl w-full mb-8">
-                <div
-                  className="rounded-xl text-center text-white"
-                  style={{
-                    width: `${progress}%`,
-                    height: "20px",
-                    backgroundColor: "#01acbc",
-                    transition: "width 0.5s ease-in-out",
-                  }}
-                >
-                  {progress >= 50 ? `${progress}%` : ""}
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="w-[100%] md:w-[48%]">
-                  <label className="text-[#000]">
-                    مبدا
-                    <span className="text-rose-500 pr-1">*</span>
-                  </label>
-                  <Select
-                    name="مبدا"
-                    className="mt-2 cursor-pointer"
-                    styles={customStyles}
-                    options={showCity}
-                    placeholder="انتخاب کنید"
-                    // value={originLabel}
-                    onChange={originHandler}
-                    isLoading={showCity ? false : true}
-                    loadingMessage={() => (
-                      <Bounce
-                        style={{ direction: "ltr" }}
-                        size={18}
-                        color="#01ACBC"
-                      />
+        <div className="container mx-auto flex items-center justify-center mt-10">
+          <div className="w-[90%] md:w-[75%] space-y-8 md:space-y-0 flex flex-col md:flex-row items-center">
+            <div className="md:self-start w-[100%] md:w-[70%] bg-white shadow-xl rounded-md">
+              <div className="container mx-auto p-8">
+                <div className="bg-[#E8E8E8] rounded-xl w-full mb-8 text-center">
+                  <div
+                    className="rounded-xl text-center text-white"
+                    style={{
+                      width: `${progress}%`,
+                      height: "20px",
+                      backgroundColor: "#01acbc",
+                      transition: "width 0.5s ease-in-out",
+                    }}
+                  >
+                    {progress > 0 ? (
+                      <p>
+                        <CountUp
+                          start={0}
+                          end={progress}
+                          duration={2}
+                          delay={0}
+                        />
+                        %
+                      </p>
+                    ) : (
+                      ""
                     )}
-                    isSearchable={true}
+                  </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row items-center justify-between">
+                  <div className="w-[100%] md:w-[48%]">
+                    <label className="text-[#000]">
+                      مبدا
+                      <span className="text-rose-500 pr-1">*</span>
+                    </label>
+                    <Select
+                      name="مبدا"
+                      className="mt-2 cursor-pointer"
+                      styles={customStyles}
+                      options={showCity}
+                      placeholder="انتخاب کنید"
+                      // value={originLabel}
+                      onChange={originHandler}
+                      isLoading={showCity ? false : true}
+                      loadingMessage={() => (
+                        <Bounce
+                          style={{ direction: "ltr" }}
+                          size={18}
+                          color="#01ACBC"
+                        />
+                      )}
+                      isSearchable={true}
+                    />
+                  </div>
+
+                  <div className="w-[100%] md:w-[48%] my-4 md:my-0">
+                    <label className="text-[#000]">
+                      مقصد
+                      <span className="text-rose-500 pr-1">*</span>
+                    </label>
+                    <Select
+                      name="مقصد"
+                      className="mt-2"
+                      styles={customStyles}
+                      options={showCity}
+                      placeholder="انتخاب کنید"
+                      // value={destinationLabel}
+                      onChange={destinationHandler}
+                      isLoading={showCity ? false : true}
+                      loadingMessage={() => (
+                        <Bounce
+                          style={{ direction: "ltr" }}
+                          size={18}
+                          color="#01ACBC"
+                        />
+                      )}
+                      isSearchable={true}
+                    />
+                  </div>
+                </div>
+
+                {/* === second inputs === */}
+                <div className="flex flex-col md:flex-row items-center justify-between md:mt-10">
+                  <div className="w-[100%] md:w-[48%] flex flex-col">
+                    <label className="text-[#000]">
+                      تناژ
+                      <span className="text-rose-500 pr-1">*</span>
+                    </label>
+                    <input
+                      onChange={tonnageHandler}
+                      className="mt-2 border-2 border-[#E8E8E8] outline-none py-[5px] px-2 text-[#000] bg-[#fff] rounded-md focus:border-[#01acbc]"
+                      type="text"
+                      placeholder="انتخاب کنید"
+                    />
+                  </div>
+
+                  <div className="w-[100%] md:w-[48%] my-4 md:my-0">
+                    <label className="text-[#000]">
+                      نوع وسیله نقلیه
+                      <span className="text-rose-500 pr-1">*</span>
+                    </label>
+                    <Select
+                      isDisabled={disabledCarType ? true : null}
+                      name="نوع وسیله نقلیه"
+                      onMenuOpen={carTypeHandler}
+                      className="mt-2"
+                      styles={customStyles}
+                      options={vehicleType}
+                      placeholder="انتخاب کنید"
+                      value={carTypeLabel}
+                      onChange={carTypeChangeHadler}
+                      isLoading={vehicleType ? false : true}
+                      loadingMessage={() => (
+                        <Bounce
+                          style={{ direction: "ltr" }}
+                          size={18}
+                          color="#01ACBC"
+                        />
+                      )}
+                      isSearchable={true}
+                    />
+                  </div>
+                </div>
+
+                <div className="mx-auto w-full md:w-full flex items-center justify-center pt-8">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey="6LcpaGwoAAAAAMRQPiaWNRtYF3IqWg4EApzxLCVj"
+                    onChange={handleRecaptchaChange}
                   />
                 </div>
 
-                <div className="w-[100%] md:w-[48%] my-4 md:my-0">
-                  <label className="text-[#000]">
-                    مقصد
-                    <span className="text-rose-500 pr-1">*</span>
-                  </label>
-                  <Select
-                    name="مقصد"
-                    className="mt-2"
-                    styles={customStyles}
-                    options={showCity}
-                    placeholder="انتخاب کنید"
-                    // value={destinationLabel}
-                    onChange={destinationHandler}
-                    isLoading={showCity ? false : true}
-                    loadingMessage={() => (
-                      <Bounce
-                        style={{ direction: "ltr" }}
-                        size={18}
-                        color="#01ACBC"
-                      />
-                    )}
-                    isSearchable={true}
-                  />
+                <div className="w-[100%] mx-auto flex items-center justify-center mt-14">
+                  <button
+                    onClick={dataFetchHandler}
+                    className="w-full py-2 bg-[#01acbc] text-white text-lg rounded-[4px] cursor-pointer"
+                  >
+                    محاسبه کرایه حمل بار
+                  </button>
                 </div>
-              </div>
-
-              {/* === second inputs === */}
-              <div className="flex flex-col md:flex-row items-center justify-between md:mt-10">
-                <div className="w-[100%] md:w-[48%] flex flex-col">
-                  <label className="text-[#000]">
-                    تناژ
-                    <span className="text-rose-500 pr-1">*</span>
-                  </label>
-                  <input
-                    onChange={tonnageHandler}
-                    className="mt-2 border-2 border-[#E8E8E8] outline-none py-[5px] px-2 text-[#000] bg-[#fff] rounded-md focus:border-[#01acbc]"
-                    type="text"
-                    placeholder="انتخاب کنید"
-                  />
-                </div>
-
-                <div className="w-[100%] md:w-[48%] my-4 md:my-0">
-                  <label className="text-[#000]">
-                    نوع وسیله نقلیه
-                    <span className="text-rose-500 pr-1">*</span>
-                  </label>
-                  <Select
-                    isDisabled={disabledCarType ? true : null}
-                    name="نوع وسیله نقلیه"
-                    onMenuOpen={carTypeHandler}
-                    className="mt-2"
-                    styles={customStyles}
-                    options={vehicleType}
-                    placeholder="انتخاب کنید"
-                    value={carTypeLabel}
-                    onChange={carTypeChangeHadler}
-                    isLoading={vehicleType ? false : true}
-                    loadingMessage={() => (
-                      <Bounce
-                        style={{ direction: "ltr" }}
-                        size={18}
-                        color="#01ACBC"
-                      />
-                    )}
-                    isSearchable={true}
-                  />
-                </div>
-              </div>
-
-              <div className="mx-auto w-full md:w-full flex items-center justify-center pt-8">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey="6LcpaGwoAAAAAMRQPiaWNRtYF3IqWg4EApzxLCVj"
-                  onChange={handleRecaptchaChange}
-                />
-              </div>
-
-              <div className="w-[100%] mx-auto flex items-center justify-center mt-14">
-                <button
-                  onClick={dataFetchHandler}
-                  className="w-full py-2 bg-[#01acbc] text-white text-lg rounded-[4px] cursor-pointer"
-                >
-                  محاسبه کرایه حمل بار
-                </button>
               </div>
             </div>
-          </div>
 
-          <div className="md:self-start w-[100%] md:w-[30%] bg-white shadow-xl rounded-md md:mr-3 text-black overflow-hidden">
-            {showPrice && (
-              <div className="flex flex-col items-center justify-center w-full h-full bg-[#334f6c] p-8 text-white">
-                <div
-                  className="border-b-2 border-[#aaa] w-[100%] mb-[12px] flex flex-col items-center justiy-between text-center"
-                  style={{ borderBottom: "1px solid #aaa" }}
-                >
-                  <p className="pb-4 text-md">حداکثر قیمت : </p>
-                  <p className="text-center font-bold text-xl mb-4">
-                    {calculatePriceMax?.toLocaleString("en-US")}
-                    <span className="mr-2">ريال</span>
-                  </p>
-                </div>
+            <div className="md:self-start w-[100%] md:w-[30%] bg-white shadow-xl rounded-md md:mr-3 text-black overflow-hidden">
+              {showPrice && (
+                <div className="flex flex-col items-center justify-center w-full h-full bg-[#334f6c] p-8 text-white">
+                  <div
+                    className="border-b-2 border-[#aaa] w-[100%] mb-[12px] flex flex-col items-center justiy-between text-center"
+                    style={{ borderBottom: "1px solid #aaa" }}
+                  >
+                    <p className="pb-4 text-md">حداکثر قیمت : </p>
+                    <p className="text-center font-bold text-xl mb-4">
+                      {calculatePriceMax?.toLocaleString("en-US")}
+                      <span className="mr-2">ريال</span>
+                    </p>
+                  </div>
 
-                <div className="flex flex-col items-center justiy-between text-center">
-                  <p className="pb-4 text-md">کف قیمت : </p>
-                  <p className="text-center font-bold text-xl mb-4">
-                    {calculatePriceMin?.toLocaleString("en-US")}
-                    <span className="mr-2">ريال</span>
-                  </p>
+                  <div className="flex flex-col items-center justiy-between text-center">
+                    <p className="pb-4 text-md">کف قیمت : </p>
+                    <p className="text-center font-bold text-xl mb-4">
+                      {calculatePriceMin?.toLocaleString("en-US")}
+                      <span className="mr-2">ريال</span>
+                    </p>
+                  </div>
                 </div>
+              )}
+
+              <div className="p-6 text-sm">
+                <p>
+                  اگر می‌خواهید هزینه حمل و نقل کالاهایتان را محاسبه کرده و سپس
+                  برای باربری آن اقدام کنید، به ترتیب مراحل زیر را انجام دهید:
+                </p>
+
+                <p className="pt-4 text-sm text-[#01acbc]">
+                  ۱. مبدا و مقصد حمل بار و همچنین تناژ و نوع وسیله نقلیه را مشخص
+                  کنید و سپس دکمه محاسبه کرایه حمل بار را کلیک کنید تا کرایه
+                  پیشنهادی صبا بار برای شما نمایش داده شود.
+                </p>
               </div>
-            )}
-
-            <div className="p-6 text-sm">
-              <p>
-                اگر می‌خواهید هزینه حمل و نقل کالاهایتان را محاسبه کرده و سپس
-                برای باربری آن اقدام کنید، به ترتیب مراحل زیر را انجام دهید:
-              </p>
-
-              <p className="pt-4 text-sm text-[#01acbc]">
-                ۱. مبدا و مقصد حمل بار و همچنین تناژ و نوع وسیله نقلیه را مشخص
-                کنید و سپس دکمه محاسبه کرایه حمل بار را کلیک کنید تا کرایه
-                پیشنهادی صبا بار برای شما نمایش داده شود.
-              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </ScrollTrigger>
   );
 };
 
