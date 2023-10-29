@@ -69,7 +69,7 @@ const Slider = () => {
           spaceBetween={20}
           slidesPerView={1}
           loop={true}
-          speed={3500}
+          speed={1000}
           className={`w-full h-full`}
         >
           {DUMMY_SWIPER_SLIDER.map((item) => (

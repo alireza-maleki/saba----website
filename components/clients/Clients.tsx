@@ -90,7 +90,7 @@ const Clients = () => {
             spaceBetween={0}
             // slidesPerView={3}
             loop={true}
-            speed={1000}
+            speed={600}
             className={`w-full h-full`}
           
 
