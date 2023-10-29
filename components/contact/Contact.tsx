@@ -98,6 +98,7 @@ const Contact = () => {
           alt={"contact"}
           className="w-full h-full object-cover"
           src="/images/contact/contact.jpg"
+          loading="lazy"
         />
       </div>
 

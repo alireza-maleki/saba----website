@@ -78,8 +78,9 @@ const Slider = () => {
                 className="w-full h-full object-cover"
                 src={item.src}
                 alt="slider"
-                width={500}
+                width={800}
                 height={500}
+                loading="lazy"
               />
 
               <div className="md:block w-full h-full flex items-center justify-center overflow-hidden bg-red-200">

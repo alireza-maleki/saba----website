@@ -38,8 +38,9 @@ const Video = () => {
           loop
           ref={videoRef}
           className="z-50 w-full h-full object-cover"
+          alt="company-video"
         >
-          <source src={videoPath} type="video/mp4" />
+          <source src={videoPath} type="video/mp4" alt="company-video" />
         </video>
       </div>
 
