@@ -14,7 +14,6 @@ const News = () => {
       <div className="w-full lg:w-[80%] xl:w-2/3 mx-auto p-12 bg-white rounded-[40px] border-2 border-white drop-shadow-2xl">
         <div className="text-center lg:text-start">
           <p className="text-[#576d85] pb-4 font-bold text-2xl">کارهایی که انجام داده ایم </p>
-          {/* <h1 className="text-[#576d85] font-bold text-3xl md:text-5xl">Our Latest News</h1> */}
         </div>
 
         <div className="mt-12">

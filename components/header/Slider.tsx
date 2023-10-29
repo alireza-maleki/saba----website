@@ -69,17 +69,18 @@ const Slider = () => {
           spaceBetween={20}
           slidesPerView={1}
           loop={true}
-          speed={3500}
+          speed={1000}
           className={`w-full h-full`}
         >
           {DUMMY_SWIPER_SLIDER.map((item) => (
             <SwiperSlide className="w-full h-full" key={item.id}>
               <Image
-                className="w-full h-full "
+                className="w-full h-full object-cover"
                 src={item.src}
                 alt="slider"
-                width={1000}
-                height={1000}
+                width={800}
+                height={500}
+                loading="lazy"
               />
 
               <div className="md:block w-full h-full flex items-center justify-center overflow-hidden bg-red-200">
@@ -139,7 +140,6 @@ const Slider = () => {
           <SwiperButton />
         </Swiper>
       </div>
-
     </div>
   );
 };

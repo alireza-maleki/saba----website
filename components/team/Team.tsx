@@ -82,6 +82,7 @@ const Team = () => {
                     onClick={() => showImageHandler(item.imgSrc)}
                     className="rounded w-full h-full"
                     src={item.imgSrc}
+                    loading="lazy"
                   />
   
                   <div className={`absolute ${classes[""]}`}>
@@ -139,7 +140,7 @@ const Team = () => {
                     {DUMMY_CLIENTS_DATA.map((item: any) => (
                       <SwiperSlide className="w-full h-full cursor-pointer" key={item.id}>
                         <div className={`bg-[#ffffff99] rounded-xl border-2 border-white p-4 md:p-4 relative w-[150px]  lg:w-[200px] 2xl:w-[300px] h-[150px] lg:h-[250px] 2xl:h-[300px] cursor-pointer overflow-hidden flex items-center justify-center ${classes["user-img"]}`}>
-                          <Image onClick={() => showImageHandler(item.imgSrc)} className="rounded w-full h-full" src={item.imgSrc} width={500} height={500} alt={"slider"}/>
+                          <Image loading="lazy" onClick={() => showImageHandler(item.imgSrc)} className="rounded w-full h-full" src={item.imgSrc} width={500} height={500} alt={"slider"}/>
                         </div>
                       </SwiperSlide>
                     ))}
@@ -156,24 +157,3 @@ const Team = () => {
 };
 
 export default Team;
-
-//   <div
-//     key={item.id}
-//     className={`bg-[#ffffff99]  rounded-xl border-2 border-white p-4 md:p-4 relative w-[300px] lg:w-[250px] 2xl:w-[300px] h-[300px] lg:h-[250px]  2xl:h-[300px] cursor-pointer overflow-hidden flex items-center justify-center ${classes["user-img"]}`}
-//   >
-//   <Image
-//     width={500}
-//     height={500}
-//     alt="team"
-//     onClick={showImageHandler}
-//     className="rounded w-full h-full"
-//     src={item.imgSrc}
-//   />
-//   <div
-//     className={`absolute ${classes[""]}`}
-//   >
-//     <div className="mx-auto space-y-2 text-center">
-//       <p className="text-xl font-bold text-white">تیم توسعه</p>
-//     </div>
-//   </div>
-// </div>

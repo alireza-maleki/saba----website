@@ -10,7 +10,6 @@ import L, { Layer } from "leaflet";
 import "leaflet.awesome-markers";
 import "leaflet-routing-machine";
 
-
 import React from "react";
 
 const Map = () => {
@@ -22,8 +21,6 @@ const Map = () => {
     iconAnchor: [16, 32], // نقطه‌ای روی ایکون که به نقطه مارکر اشاره می‌کند
     popupAnchor: [0, -32], // نقطه‌ای روی ایکون که نشانگر محل پاپ‌آپ است
   });
-
-  
 
   return (
     <div className="w-screen max-h-[700px] py-24 bg-gradient-to-r from-[#b7eafd] to-[#c2d4fc]">
@@ -38,7 +35,7 @@ const Map = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-        <Marker position={position} icon={customIcon}>
+          <Marker position={position} icon={customIcon}>
             <Popup>لوکیشن شرکت</Popup>
           </Marker>
         </MapContainer>

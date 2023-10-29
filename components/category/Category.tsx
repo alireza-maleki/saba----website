@@ -14,14 +14,14 @@ const Category = () => {
     <div className="w-screen min-h-[750px] py-32 md:py-12 bg-gradient-to-r from-[#b7eafd] to-[#c2d4fc]">
       <div className="container px-4 lg:px-0 mx-auto">
         <div className="text-black pt-10 w-full lg:w-2/3">
-          <h1 className="text-center px-4 md:px-6 leading-8 md:leading-10 md:text-start text-sm md:text-md lg:text-lg">
+          <h2 className="text-center px-4 md:px-6 leading-8 md:leading-10 md:text-start text-sm md:text-md lg:text-lg">
             تلفیق زیر ساخت های عظیم بانکی با سیستم سازمان پایانه کل کشور و ارائه
             خدمتی نوین در عرصه حمل و نقل، اصلی ترین دلیل تولد استارتاپ صبا بار
             بوده است. ما آمده ایم تا با تسهیل فرایند تسویه حساب، بار عظیمی را از
             روی دوش کارفرمایان صاحب بار برداریم و همزمان با ارائه این خدمت، با
             تسویه به موقع و بی واسطه، موجبات رضایت رانندگان عزیز را نیز فراهم
             کنیم.
-          </h1>
+          </h2>
         </div>
 
         <div className="bg-[#ffffff99] lg:py-14 md:px-10 drop-shadow-2xl border-2 border-white backdrop-blur-3xl rounded-3xl mt-10 flex flex-wrap  flex-row lg:flex-col">

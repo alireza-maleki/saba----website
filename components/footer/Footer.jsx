@@ -14,12 +14,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row text-center md:text-start space-y-8 md:space-y-0 items-center justify-around">
           <div>
             <p className="text-[#b0b0b1] pb-2 text-lg">تماس با ما</p>
-            <h1
+            <h3
               className="text-[#5e71db] font-bold text-2xl md:text-3xl"
               style={{ direction: "ltr" }}
             >
               ۰۲۱ - ۲۲۷۷۸۳۰۰
-            </h1>
+            </h3>
           </div>
 
           <div>
@@ -34,11 +34,11 @@ const Footer = () => {
               className="bg-[#5e71db] p-2 w-10 h-10 rounded-full cursor-pointer text-white"
             />
 
-            <Link href="https://www.linkedin.com/company/sababar/mycompany/verification/">
+            <Link aria-label="linkedin" href="https://www.linkedin.com/company/sababar/mycompany/verification/">
               <AiFillLinkedin className="bg-[#5e71db] p-2 w-10 h-10 rounded-full cursor-pointer text-white" />
             </Link>
 
-            <Link href="https://instagram.com/sababarr?igshid=MmU2YjMzNjRlOQ==">
+            <Link aria-label="instagram" href="https://instagram.com/sababarr?igshid=MmU2YjMzNjRlOQ==">
               <FaInstagram className="bg-[#5e71db] p-2 w-10 h-10 rounded-full cursor-pointer text-white" />
             </Link>
           </div>
@@ -56,13 +56,14 @@ const Footer = () => {
 
           <div className="w-full md:w-1/4 self-end flex flex-col md:flex-row items-center">
             <a
+              aria-label="enamd"
               className="cursor-pointer"
               target="_blank"
               href="https://trustseal.enamad.ir/?id=169806&amp;Code=dpNW6vCj2bNdI4s15LBK"
             >
               <img
                 src="https://Trustseal.eNamad.ir/logo.aspx?id=169806&amp;Code=dpNW6vCj2bNdI4s15LBK"
-                alt=""
+                alt="enamad"
                 id="dpNW6vCj2bNdI4s15LBK"
               />
             </a>
@@ -72,6 +73,8 @@ const Footer = () => {
               onClick='window.open("https://logo.samandehi.ir/Verify.aspx?id=171565&p=rfthjyoerfthdshwgvkadshw", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
               alt="logo-samandehi"
               src="https://logo.samandehi.ir/logo.aspx?id=171565&p=nbpdyndtnbpdujynwlbqujyn"
+              width={200}
+              height={200}
             />
           </div>
         </div>

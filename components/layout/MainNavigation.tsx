@@ -48,13 +48,27 @@ const MainNavigation = () => {
       <div className="hidden md:block md:w-3/4 lg:w-2/4">
         <ul className="w-full flex items-center justify-between md:text-md lg:text-xl text-[#263d5a]">
           <li className="cursor-pointer hover:text-black">
-            <Link to="/" spy={true} smooth={true} offset={0} duration={4000}>
+            <WebLogBtn
+              to="/"
+              href="/"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={2000}
+            >
               صفحه اصلی
-            </Link>
+            </WebLogBtn>
           </li>
 
           <li className="cursor-pointer hover:text-black">
-            <Link to="" spy={true} smooth={true} offset={0} duration={500}>
+            <Link
+              to="/"
+              href="/"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={2000}
+            >
               محصولات
             </Link>
           </li>
@@ -66,10 +80,11 @@ const MainNavigation = () => {
           <li className="cursor-pointer hover:text-black">
             <Link
               to="contact"
+              href="contact"
               spy={true}
               smooth={true}
               offset={0}
-              duration={4000}
+              duration={2000}
             >
               تماس با ما
             </Link>
@@ -78,24 +93,24 @@ const MainNavigation = () => {
           <li className="cursor-pointer hover:text-black">
             <Link
               to="footer"
+              href="footer"
               spy={true}
               smooth={true}
               offset={0}
-              duration={4000}
+              duration={2000}
             >
               درباره ما
             </Link>
           </li>
 
           <li className="cursor-pointer">
-              <WebLogBtn
-                className="text-base px-4 py-2 rounded-lg bg-[#334f6c] hover:bg-[#335f6c] text-white"
-                href="/freight-quote"
-              >
-                 استعلام کرایه حمل
-              </WebLogBtn>
-            </li>
-            
+            <WebLogBtn
+              className="text-base px-4 py-2 rounded-lg bg-[#334f6c] hover:bg-[#335f6c] text-white"
+              href="/freight-quote"
+            >
+              استعلام کرایه حمل
+            </WebLogBtn>
+          </li>
         </ul>
       </div>
 
@@ -106,106 +121,95 @@ const MainNavigation = () => {
           width={200}
           height={80}
           alt="logo"
+          loading="lazy"
         />
       </WebLogBtn>
 
       {/* === Header for Moblie view === */}
-        <div
-          className={`z-50 text-center bg-[#ffffff99] left-0 h-[250px] w-screen block md:hidden ${
-            classes["navbar"]
-          } ${classes.menu} ${isOpen ? classes.open : ""} ${
-            isOpen ? classes["bg-white"] : ""
-          } `}
+      <div
+        className={`z-50 text-center bg-[#ffffff99] left-0 h-[250px] w-screen block md:hidden ${
+          classes["navbar"]
+        } ${classes.menu} ${isOpen ? classes.open : ""} ${
+          isOpen ? classes["bg-white"] : ""
+        } `}
+      >
+        <ul
+          className={`w-full h-full text-center space-y-4 pt-4 text-lg text-[#000]`}
         >
-          <ul
-            className={`w-full h-full text-center space-y-4 pt-4 text-lg text-[#000]`}
-          >
-            <li className="cursor-pointer hover:text-black">
-              <Link
-                to="/"
-                spy={true}
-                smooth={true}
-                offset={0}
-                duration={4000}
-                onClick={() => {
-                  handleMenuToggle();
-                }}
-              >
-                صفحه اصلی
-              </Link>
-            </li>
+          <li className="cursor-pointer hover:text-black">
+            <WebLogBtn
+              to="/"
+              href="/"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={2000}
+              onClick={() => {
+                handleMenuToggle();
+              }}
+            >
+              صفحه اصلی
+            </WebLogBtn>
+          </li>
 
-            <li className="cursor-pointer hover:text-black">
-              <Link
-                to=""
-                spy={true}
-                smooth={true}
-                offset={0}
-                duration={4000}
-                onClick={() => {
-                  handleMenuToggle();
-                }}
-              >
-                محصولات
-              </Link>
-            </li>
+          <li className="cursor-pointer hover:text-black">
+            <Link
+              to="/"
+              href="/"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={2000}
+              onClick={() => {
+                handleMenuToggle();
+              }}
+            >
+              محصولات
+            </Link>
+          </li>
 
-            {/* <li className="cursor-pointer hover:text-black">
-              <Link
-                to=""
-                spy={true}
-                smooth={true}
-                offset={0}
-                duration={4000}
-                onClick={() => {
-                  handleMenuToggle();
-                }}
-              >
-                وبلاگ
-              </Link>
-            </li> */}
+          <li className="cursor-pointer hover:text-black">
+            <Link
+              to="contact"
+              href="contact"
+              spy={true}
+              smooth={true}
+              offset={100}
+              duration={2000}
+              onClick={() => {
+                handleMenuToggle();
+              }}
+            >
+              تماس با ما
+            </Link>
+          </li>
 
-            <li className="cursor-pointer hover:text-black">
-              <Link
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={100}
-                duration={4000}
-                onClick={() => {
-                  handleMenuToggle();
-                }}
-              >
-                تماس با ما
-              </Link>
-            </li>
+          <li className="cursor-pointer hover:text-black">
+            <Link
+              to="footer"
+              href="footer"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={2000}
+              onClick={() => {
+                handleMenuToggle();
+              }}
+            >
+              درباره ما
+            </Link>
+          </li>
 
-            <li className="cursor-pointer hover:text-black">
-              <Link
-                to="footer"
-                spy={true}
-                smooth={true}
-                offset={0}
-                duration={4000}
-                onClick={() => {
-                  handleMenuToggle();
-                }}
-              >
-                درباره ما
-              </Link>
-            </li>
-
-            <li className="cursor-pointer hover:text-black">
-              <WebLogBtn
-                onOpenMenuHandler={handleMenuToggle}
-                href="/freight-quote"
-              >
-                 استعلام کرایه
-              </WebLogBtn>
-            </li>
-
-          </ul>
-        </div>
+          <li className="cursor-pointer hover:text-black">
+            <WebLogBtn
+              onOpenMenuHandler={handleMenuToggle}
+              href="/freight-quote"
+            >
+              استعلام کرایه
+            </WebLogBtn>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

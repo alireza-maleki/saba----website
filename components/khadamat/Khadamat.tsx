@@ -22,6 +22,7 @@ const Khadamat = () => {
             alt={"khadamat"}
             className="rounded-xl w-full h-full object-cover"
             src="/images/khadamat/khadamat.jpeg"
+            loading="lazy"
           />
         </div>
 
