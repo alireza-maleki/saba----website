@@ -71,6 +71,14 @@ const Slider = () => {
           loop={true}
           speed={1000}
           className={`w-full h-full`}
+          breakpoints={{
+            0: {
+              speed: 300, // سرعت اسلایدر برای موبایل با عرض صفحه 768px و بیشتر
+            },
+            576: {
+              speed: 1000,
+          },
+          }}
         >
           {DUMMY_SWIPER_SLIDER.map((item) => (
             <SwiperSlide className="w-full h-full" key={item.id}>
@@ -80,7 +88,7 @@ const Slider = () => {
                 alt="slider"
                 width={800}
                 height={500}
-                loading="lazy"
+                // loading="lazy"
               />
 
               <div className="md:block w-full h-full flex items-center justify-center overflow-hidden bg-red-200">
