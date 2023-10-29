@@ -15,13 +15,13 @@ const ThreePic = () => {
         }`}
       >
         <div className={`${classes.face} ${classes.front}`}>
-          <Image width={300} height={300} src={frontImg} alt="front" />
+          <Image loading="lazy" width={300} height={300} src={frontImg} alt="front" />
         </div>
 
         <div className={classes.spacer}></div>
 
         <div className={`${classes.face} ${classes.back}`}>
-          <Image width={300} height={300} src={backImg} alt="Back" />
+          <Image loading="lazy" width={300} height={300} src={backImg} alt="Back" />
         </div>
       </div>
     </div>

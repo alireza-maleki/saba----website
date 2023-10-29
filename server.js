@@ -38,39 +38,4 @@ app.prepare().then(() => {
       console.log(`> Ready on http://${hostname}:${port}`);
     });
 });
-
-// === setting for SEO ===
-const express = require("express");
-const axios = require("axios");
-const { SitemapStream, streamToPromise } = require("sitemap");
-
-const app2 = express();
-const PORT = process.env.PORT || 3000;
-
-app2.get("/sitemap.xml", async (req, res) => {
-  try {
-    const smStream = new SitemapStream({
-      hostname: "http://test.sababar.net:2024/",
-    });
-    const axiosResponse = await axios.get("http://test.sababar.net:2024/"); // اطلاعات مربوط به صفحات خود را از API خود بگیرید
-
-    // اطلاعات مربوط به صفحات را به نقشه سایت اضافه کنید
-    axiosResponse.data.pages.forEach((page) => {
-      smStream.write({ url: page.url, lastmod: page.lastModified });
-    });
-
-    smStream.end();
-    const sitemap = await streamToPromise(smStream).then((data) =>
-      data.toString()
-    );
-    res.header("Content-Type", "application/xml");
-    res.send(sitemap);
-  } catch (error) {
-    console.error(error);
-    res.status(500).end();
-  }
-});
-
-app2.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+س
