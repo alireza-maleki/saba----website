@@ -4,8 +4,9 @@
 
 /* styles.css */
 @font-face {
-  font-family: 'MyCustomFont';
-  src: url('../public/fonts/IRANSansXFaNum-Regular.woff') format('truetype');
+  font-display: swap;
+  font-family: "MyCustomFont";
+  src: url("../public/fonts/IRANSansXFaNum-Regular.woff") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,8 +21,6 @@
   display: none !important;
 }
 
-
-
 /* === Swiper.js Bullet Style === */
 .swiper-pagination-bullet-active {
   background-color: #01acbc !important;
@@ -31,16 +30,14 @@
   padding: 6px;
 }
 
-
 /* === React Toast === */
 .Toastify__toast-body {
   text-align: right;
 }
 
 .Toastify__toast {
-  font-family: 'MyCustomFont', sans-serif !important;
+  font-family: "MyCustomFont", sans-serif !important;
 }
-
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -57,10 +54,11 @@
 }
 
 body {
-  font-family: 'MyCustomFont', sans-serif;
+  font-display: swap;
+  font-family: "MyCustomFont", sans-serif;
   direction: rtl;
   margin: 0;
-  padding: 0; 
+  padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
@@ -75,6 +73,3 @@ body {
 .ReactCollapse--collapse {
   transition: height 300ms;
 }
-
-
-
