@@ -65,12 +65,14 @@ const Footer = () => {
                 src="https://Trustseal.eNamad.ir/logo.aspx?id=169806&amp;Code=dpNW6vCj2bNdI4s15LBK"
                 alt="enamad"
                 id="dpNW6vCj2bNdI4s15LBK"
+                width={200}
+                height={200}
               />
             </a>
 
             <img
               className="cursor-pointer"
-              onClick='window.open("https://logo.samandehi.ir/Verify.aspx?id=171565&p=rfthjyoerfthdshwgvkadshw", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
+              // onClick='window.open("https://logo.samandehi.ir/Verify.aspx?id=171565&p=rfthjyoerfthdshwgvkadshw", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
               alt="logo-samandehi"
               src="https://logo.samandehi.ir/logo.aspx?id=171565&p=nbpdyndtnbpdujynwlbqujyn"
               width={200}

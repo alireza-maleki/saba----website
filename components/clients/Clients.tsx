@@ -97,9 +97,11 @@ const Clients = () => {
           breakpoints={{
               0: {
                   slidesPerView: 2,
+                  speed: 300,
               },
               576: {
                   slidesPerView: 2,
+                  speed: 600
               },
               768: {
                   slidesPerView: 3,
