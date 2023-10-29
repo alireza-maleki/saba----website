@@ -52,6 +52,7 @@ const Team = () => {
               alt="show-image"
               width={800}
               height={800}
+              loading="lazy"
             />
             <AiOutlineClose
               onClick={closeBackdropHandler}
