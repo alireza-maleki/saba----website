@@ -69,6 +69,7 @@ const Clients = () => {
           alt={"client"}
           className="w-full h-full backdrop-blur-3xl object-cover"
           src="/images/client-pic/client.jpg"
+          loading="lazy"
         />
       </div>
 

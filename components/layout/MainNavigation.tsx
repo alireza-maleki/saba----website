@@ -19,7 +19,7 @@ const MainNavigation = () => {
   }, []);
 
   const handleMenuToggle = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prevState) => !prevState);
   };
 
   return (

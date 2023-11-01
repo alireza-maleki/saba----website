@@ -11,6 +11,7 @@ import "leaflet.awesome-markers";
 import "leaflet-routing-machine";
 
 import React from "react";
+import Image from "next/image";
 
 const Map = () => {
   const position = [35.76947674049078, 51.45888020206589];
