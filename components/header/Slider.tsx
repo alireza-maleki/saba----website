@@ -54,7 +54,7 @@ const handleDownload = () => {
 const Slider = () => {
   return (
     <div
-      className="relative w-screen h-[90vh] bg-gray-300 overflow-hidden"
+      className="relative w-screen h-screen bg-gray-300 overflow-hidden"
       id="/"
     >
       <div className="z-50 md:z-0 w-full h-full">
